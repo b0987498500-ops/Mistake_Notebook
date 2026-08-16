@@ -1,10 +1,10 @@
 {
   "projectName": "Miley錯題本",
   "mainRepository": {
-    "account": "bennychen",
+    "account": "b0987498500-ops",
     "remoteName": "origin",
     "branch": "main",
-    "url": "https://github.com/bennychen/Miley-错题本.git"
+    "url": "https://github.com/b0987498500-ops/Mistake_Notebook.git"
   },
   "checkpointLogPath": "Checkpoints.md",
   "archiveRulesPath": ".agents/archive_rules/",
