@@ -607,3 +607,72 @@ $$b^2 = 2(a + 4) \times 16 = 32(a + 4)$$
 </details>
 
 [🖼️ 查看原始完整截圖（💡 提示：點擊連結開啟圖片後，可將分頁拖曳至右側或按 Ctrl + \ 分割視窗對照）](images/math_7_source.png)
+
+---
+
+## 📌 錯題 8：平行線截比例線段與連比計算（三角形中點與平行截線）
+
+### 📅 記錄日期：2026-08-16
+
+### 📝 題目敘述
+如圖，$\triangle ABC$ 中，$M$ 是 $\overline{AB}$ 的中點，$\overline{CM}$ 上取一點 $N$，使 $\overline{CN} : \overline{NM} = 7 : 4$，且 $\overline{MP} \parallel \overline{AN}$，交 $\overline{BC}$ 於 $P$，延長 $\overline{AN}$ 交 $\overline{BC}$ 於 $Q$，若 $\overline{BC} = 15$，則 $\overline{BP} = ?$
+
+<details open>
+<summary>🔍 <b>題目圖（點擊可展開/收合整個區塊，點擊下方圖片可原地放大/縮小）</b></summary>
+<input type="checkbox" id="zoom-m8-q" class="zoom-toggle">
+<label for="zoom-m8-q" class="zoom-label">
+  <img src="images/math_8.png" alt="題目圖" style="width: 100%; max-width: 450px; margin-top: 8px; border-radius: 6px; border: 1px solid #ddd;">
+</label>
+</details>
+
+### 🏷️ 錯題分類
+*   **年級**：九年級上學期
+*   **科目**：數學（翰林版）
+*   **單元**：第一章 相似形
+*   **核心知識點**：平行線截比例線段定理、三角形中點與平行線截線性質、三線段連比轉換
+
+### 🔑 答案
+> 💡 **【核心答案】**  
+> **正確答案：4**
+
+### 💡 完整解析與解題步驟
+
+#### 1. 利用平行線截比例線段定理求 $\overline{CQ} : \overline{PQ}$ 的比
+在 $\triangle CMP$ 中，因為 $\overline{AN} \parallel \overline{MP}$（即 $\overline{AQ} \parallel \overline{MP}$）：  
+根據平行線截比例線段定理，線段成比例：
+$$\overline{CN} : \overline{NM} = \overline{CQ} : \overline{PQ} = 7 : 4$$
+
+#### 2. 利用平行線與中點性質求 $\overline{BP} : \overline{PQ}$ 的比
+在 $\triangle ABQ$ 中，因為 $M$ 為 $\overline{AB}$ 的中點，且 $\overline{MP} \parallel \overline{AQ}$：  
+根據平行線截比例線段定理（或中位線平行截線性質），$P$ 點必定為 $\overline{BQ}$ 的中點：
+$$\overline{BP} : \overline{PQ} = 1 : 1$$
+
+#### 3. 整合三線段連比並求出 $\overline{BP}$ 長度
+已知 $\overline{BP} : \overline{PQ} = 1 : 1$ 且 $\overline{CQ} : \overline{PQ} = 7 : 4$，將共同項 $\overline{PQ}$ 統一設為 $4$ 份：
+$$\overline{BP} : \overline{PQ} : \overline{CQ} = 4 : 4 : 7$$
+
+整條底邊 $\overline{BC} = \overline{BP} + \overline{PQ} + \overline{CQ}$ 的總份數為：
+$$4 + 4 + 7 = 15 \text{ 份}$$
+
+已知 $\overline{BC} = 15$，因此每 $1$ 份的實際長度為 $1$。  
+故線段 $\overline{BP}$ 的長度為：
+$$\overline{BP} = \frac{4}{4 + 4 + 7} \times \overline{BC} = \frac{4}{15} \times 15 = 4$$
+
+> ⚠️ **【🧠 思考盲點與概念釐清】**
+> *   **盲點 1：找不到平行線截線段比的過渡橋樑**  
+>     本題關鍵在於利用 $\overline{AQ} \parallel \overline{MP}$ 作為兩組平行截線的橋樑：一組在 $\triangle CMP$ 中將 $\overline{CN}:\overline{NM}$ 轉化到底邊的 $\overline{CQ}:\overline{PQ}$；另一組在 $\triangle ABQ$ 中將腰邊中點 $M$ 轉化到底邊中點 $P$。
+> *   **盲點 2：連比轉換時比例項未對齊**  
+>     已知 $\overline{BP} : \overline{PQ} = 1 : 1$ 與 $\overline{CQ} : \overline{PQ} = 7 : 4$ 時，需將共同項 $\overline{PQ}$ 擴分對齊為相同份數（同乘以 $4$ 變為 $4$），才能結合為三連比 $\overline{BP} : \overline{PQ} : \overline{CQ} = 4 : 4 : 7$。
+
+---
+
+<details open>
+<summary>🔍 <b>原始完整截圖（點擊可展開/收合整個區塊，點擊下方圖片可原地放大/縮小）</b></summary>
+<input type="checkbox" id="zoom-m8-src" class="zoom-toggle">
+<label for="zoom-m8-src" class="zoom-label">
+  <img src="images/math_8_source.png" alt="原始完整截圖" style="width: 100%; max-width: 450px; margin-top: 8px; border-radius: 6px; border: 1px solid #ddd;">
+</label>
+</details>
+
+[🖼️ 查看原始完整截圖（💡 提示：點擊連結開啟圖片後，可將分頁拖曳至右側或按 Ctrl + \ 分割視窗對照）](images/math_8_source.png)
+
