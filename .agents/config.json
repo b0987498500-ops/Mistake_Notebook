@@ -1,0 +1,12 @@
+{
+  "projectName": "Miley錯題本",
+  "mainRepository": {
+    "account": "bennychen",
+    "remoteName": "origin",
+    "branch": "main",
+    "url": "https://github.com/bennychen/Miley-错题本.git"
+  },
+  "checkpointLogPath": "Checkpoints.md",
+  "archiveRulesPath": ".agents/archive_rules/",
+  "versionFormat": "vX.XX"
+}
