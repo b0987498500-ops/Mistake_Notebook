@@ -264,6 +264,34 @@
       letter-spacing: 0.04em;
     }
 
+    /* Subject Switcher Tabs */
+    .subject-nav-tabs {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      background: var(--bg-card-subtle);
+      border: 1px solid var(--border-color);
+      padding: 3px;
+      border-radius: var(--radius-full);
+      margin-left: 0.5rem;
+    }
+    .subject-nav-tab {
+      padding: 4px 11px;
+      border-radius: var(--radius-full);
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: var(--text-muted);
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+    .subject-nav-tab:hover {
+      color: var(--primary);
+    }
+    .subject-nav-tab.active {
+      background: var(--primary);
+      color: white;
+    }
+
     /* Navbar Controls */
     .nav-controls {
       display: flex;
@@ -1412,6 +1440,12 @@
             <span class="brand-subtitle">數學科國中會考複習系統</span>
           </div>
         </a>
+
+        <!-- Subject Switcher -->
+        <div class="subject-nav-tabs">
+          <a href="math.html" class="subject-nav-tab active">📐 數學</a>
+          <a href="science.html" class="subject-nav-tab">🔬 自然</a>
+        </div>
       </div>
 
       <!-- Center & Right Control Bar -->

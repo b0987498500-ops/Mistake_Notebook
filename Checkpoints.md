@@ -4,6 +4,19 @@
 
 ---
 
+## 📌 [v1.04] - 2026-08-22 增量快照 (Incremental Checkpoint)
+
+- **版本號**：`v1.04`
+- **記錄日期**：2026-08-22
+- **狀態**：[一般快照]
+- **異動摘要**：
+  - **新增理化科錯題本**：建立 [science.md](file:///p:/bennychen/0AI_共用資料夾/Miley錯題本/science.md) 並收錄「錯題 1：凸透鏡成像實驗與焦距判斷（物距與像距數據分析與不等式逼近法）」。
+  - **建立理化科互動網頁系統**：建立 [science.html](file:///p:/bennychen/0AI_共用資料夾/Miley錯題本/science.html)，提供大字縮放、護眼模式、測驗模式，並在 [math.html](file:///p:/bennychen/0AI_共用資料夾/Miley錯題本/math.html) 與 `science.html` 頂部加入跨學科即時切換標籤。
+  - **圖片裁切與存檔**：儲存並裁切題目數據表 `science_1.png` 與原始完整截圖 `science_1_source.png`。
+- **廢棄/提純規則**：無
+
+---
+
 ## 📌 [v1.03] - 2026-08-22 增量快照 (Incremental Checkpoint)
 
 - **版本號**：`v1.03`

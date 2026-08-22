@@ -1,0 +1,1146 @@
+<!DOCTYPE html>
+<html lang="zh-TW" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+  <title>Miley 自然理化錯題複習本 | 智能大字護眼題庫</title>
+  
+  <!-- Google Fonts & FontAwesome -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Noto+Sans+TC:wght@400;500;700;900&family=Fira+Code:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <!-- KaTeX for High Performance Math/Physics Formula Rendering -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js"></script>
+
+  <style>
+    :root {
+      --font-scale: 1.0;
+      
+      --primary: #0284c7;
+      --primary-hover: #0369a1;
+      --primary-light: #e0f2fe;
+      --accent: #10b981;
+      --accent-gradient: linear-gradient(135deg, #0284c7 0%, #10b981 100%);
+      
+      --bg-base: #f8fafc;
+      --bg-surface: #ffffff;
+      --bg-card: #ffffff;
+      --bg-card-subtle: #f1f5f9;
+      --border-color: #e2e8f0;
+      
+      --text-main: #0f172a;
+      --text-muted: #64748b;
+      --text-light: #94a3b8;
+      
+      --success: #10b981;
+      --success-bg: #ecfdf5;
+      --success-border: #a7f3d0;
+      --danger: #ef4444;
+      --danger-bg: #fef2f2;
+      --danger-border: #fecaca;
+      --warning: #f59e0b;
+      --warning-bg: #fffbeb;
+      --warning-border: #fde68a;
+      
+      --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+      --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.07), 0 2px 4px -2px rgb(0 0 0 / 0.05);
+      --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.08), 0 4px 6px -4px rgb(0 0 0 / 0.04);
+      
+      --radius-sm: 8px;
+      --radius-md: 14px;
+      --radius-lg: 20px;
+      --radius-full: 9999px;
+      
+      --transition-speed: 0.28s;
+      --transition-ease: cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    [data-theme="dark"] {
+      --bg-base: #0b0f19;
+      --bg-surface: #111827;
+      --bg-card: #1e293b;
+      --bg-card-subtle: #0f172a;
+      --border-color: #334155;
+      
+      --text-main: #f1f5f9;
+      --text-muted: #94a3b8;
+      --text-light: #64748b;
+      
+      --primary-light: #082f49;
+      --success-bg: #064e3b;
+      --success-border: #047857;
+      --danger-bg: #7f1d1d;
+      --danger-border: #991b1b;
+      --warning-bg: #78350f;
+      --warning-border: #92400e;
+    }
+
+    [data-theme="sepia"] {
+      --bg-base: #fbf7ee;
+      --bg-surface: #f4ecd8;
+      --bg-card: #f8f1e0;
+      --bg-card-subtle: #eae0c8;
+      --border-color: #dcd0b6;
+      
+      --text-main: #433422;
+      --text-muted: #79664f;
+      --text-light: #a39079;
+      
+      --primary: #2563eb;
+      --primary-hover: #1d4ed8;
+      --primary-light: #dbeafe;
+      --accent: #059669;
+      --accent-gradient: linear-gradient(135deg, #0284c7 0%, #059669 100%);
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html, body {
+      max-width: 100%;
+      overflow-x: hidden;
+      width: 100%;
+    }
+
+    body {
+      font-family: 'Outfit', 'Noto Sans TC', -apple-system, BlinkMacSystemFont, sans-serif;
+      background-color: var(--bg-base);
+      color: var(--text-main);
+      line-height: 1.75;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      transition: background-color var(--transition-speed) ease, color var(--transition-speed) ease;
+      word-wrap: break-word;
+      overflow-wrap: break-word;
+      word-break: break-word;
+    }
+
+    /* Top Navbar */
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      background-color: rgba(255, 255, 255, 0.92);
+      border-bottom: 1px solid var(--border-color);
+    }
+    [data-theme="dark"] .navbar {
+      background-color: rgba(17, 24, 39, 0.92);
+    }
+    [data-theme="sepia"] .navbar {
+      background-color: rgba(244, 236, 216, 0.95);
+    }
+
+    .navbar-container {
+      max-width: 1600px;
+      margin: 0 auto;
+      padding: 0.75rem 1.25rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+    }
+
+    .nav-left {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .btn-sidebar-toggle {
+      width: 40px;
+      height: 40px;
+      border-radius: var(--radius-md);
+      border: 1px solid var(--border-color);
+      background: var(--bg-surface);
+      color: var(--text-main);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-size: 1.1rem;
+      transition: all 0.2s;
+    }
+    .btn-sidebar-toggle:hover {
+      background: var(--primary-light);
+      color: var(--primary);
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.65rem;
+      text-decoration: none;
+      color: var(--text-main);
+    }
+    .brand-logo {
+      width: 38px;
+      height: 38px;
+      border-radius: var(--radius-md);
+      background: var(--accent-gradient);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 1.2rem;
+      box-shadow: 0 4px 12px rgba(2, 132, 199, 0.35);
+    }
+    .brand-title {
+      font-weight: 800;
+      font-size: 1.15rem;
+      background: var(--accent-gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      line-height: 1.2;
+    }
+    .brand-subtitle {
+      font-size: 0.72rem;
+      color: var(--text-muted);
+      font-weight: 600;
+    }
+
+    /* Subject Switcher */
+    .subject-nav-tabs {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      background: var(--bg-card-subtle);
+      border: 1px solid var(--border-color);
+      padding: 3px;
+      border-radius: var(--radius-full);
+      margin-left: 0.5rem;
+    }
+    .subject-nav-tab {
+      padding: 4px 10px;
+      border-radius: var(--radius-full);
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: var(--text-muted);
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+    .subject-nav-tab:hover {
+      color: var(--primary);
+    }
+    .subject-nav-tab.active {
+      background: var(--primary);
+      color: white;
+    }
+
+    .nav-controls {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+    }
+
+    .font-sizer-widget {
+      display: flex;
+      align-items: center;
+      background: var(--bg-card-subtle);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-full);
+      padding: 3px 6px;
+      gap: 4px;
+    }
+    .font-sizer-label {
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--text-muted);
+      padding: 0 4px;
+    }
+    .btn-sizer {
+      width: 28px;
+      height: 28px;
+      border-radius: var(--radius-full);
+      border: none;
+      background: var(--bg-surface);
+      color: var(--text-main);
+      font-weight: 700;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .btn-sizer:hover {
+      background: var(--primary);
+      color: white;
+    }
+    .font-sizer-value {
+      min-width: 48px;
+      text-align: center;
+      font-size: 0.85rem;
+      font-weight: 800;
+      color: var(--primary);
+      font-family: 'Fira Code', monospace;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      padding: 0.45rem 0.85rem;
+      font-size: 0.85rem;
+      font-weight: 600;
+      border-radius: var(--radius-md);
+      cursor: pointer;
+      border: 1px solid transparent;
+      outline: none;
+      white-space: nowrap;
+    }
+    .btn-primary {
+      background: var(--accent-gradient);
+      color: white;
+    }
+    .btn-ghost {
+      background: var(--bg-surface);
+      color: var(--text-main);
+      border: 1px solid var(--border-color);
+    }
+
+    .theme-switcher-group {
+      display: flex;
+      background: var(--bg-card-subtle);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-full);
+      padding: 2px;
+    }
+    .theme-btn {
+      width: 28px;
+      height: 28px;
+      border-radius: var(--radius-full);
+      border: none;
+      background: transparent;
+      color: var(--text-muted);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.82rem;
+    }
+    .theme-btn.active {
+      background: var(--bg-surface);
+      color: var(--primary);
+    }
+
+    /* Hero */
+    .hero {
+      background: linear-gradient(180deg, rgba(2, 132, 199, 0.06) 0%, rgba(248, 250, 252, 0) 100%);
+      padding: 1.25rem 1.25rem 0.85rem;
+      border-bottom: 1px solid var(--border-color);
+    }
+    .hero-container {
+      max-width: 1600px;
+      margin: 0 auto;
+    }
+    .hero-header {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 0.85rem;
+      margin-bottom: 1rem;
+    }
+    .hero-headline h1 {
+      font-size: calc(1.5rem * var(--font-scale));
+      font-weight: 800;
+    }
+    .hero-headline p {
+      color: var(--text-muted);
+      font-size: calc(0.9rem * var(--font-scale));
+    }
+
+    .font-preset-badges {
+      display: flex;
+      align-items: center;
+      gap: 0.35rem;
+      background: var(--bg-surface);
+      padding: 0.3rem 0.6rem;
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-full);
+    }
+    .font-preset-btn {
+      padding: 0.2rem 0.55rem;
+      font-size: 0.74rem;
+      font-weight: 700;
+      border-radius: var(--radius-full);
+      border: 1px solid var(--border-color);
+      background: var(--bg-card-subtle);
+      color: var(--text-muted);
+      cursor: pointer;
+    }
+    .font-preset-btn.active {
+      background: var(--primary);
+      border-color: var(--primary);
+      color: white;
+    }
+
+    /* Stats Grid */
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 0.75rem;
+    }
+    .stat-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      padding: 0.75rem 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      box-shadow: var(--shadow-sm);
+    }
+    .stat-icon {
+      width: 38px;
+      height: 38px;
+      border-radius: var(--radius-md);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.15rem;
+      flex-shrink: 0;
+    }
+    .stat-icon.total { background: #e0f2fe; color: #0284c7; }
+    .stat-icon.mastered { background: #dcfce7; color: #15803d; }
+    .stat-icon.review { background: #fef3c7; color: #b45309; }
+    .stat-icon.rate { background: #f3e8ff; color: #7e22ce; }
+
+    .stat-info .stat-value {
+      font-size: calc(1.3rem * var(--font-scale));
+      font-weight: 800;
+      line-height: 1.1;
+    }
+    .stat-info .stat-label {
+      font-size: calc(0.74rem * var(--font-scale));
+      color: var(--text-muted);
+      font-weight: 600;
+    }
+
+    /* Main Layout */
+    .main-wrapper {
+      max-width: 1600px;
+      margin: 1.25rem auto 3rem;
+      padding: 0 1.25rem;
+      display: grid;
+      grid-template-columns: 290px 1fr;
+      gap: 1.5rem;
+      align-items: start;
+      width: 100%;
+      position: relative;
+    }
+    .main-wrapper.sidebar-collapsed {
+      grid-template-columns: 0px 1fr;
+      gap: 0;
+    }
+
+    /* Floating Tab */
+    .edge-sidebar-tab {
+      position: fixed !important;
+      left: 0 !important;
+      top: 50% !important;
+      transform: translateY(-50%) !important;
+      z-index: 99999 !important;
+      background: var(--accent-gradient) !important;
+      color: #ffffff !important;
+      border: none !important;
+      border-radius: 0 16px 16px 0 !important;
+      padding: 16px 12px 16px 10px !important;
+      cursor: pointer !important;
+      box-shadow: 4px 0 22px rgba(2, 132, 199, 0.5) !important;
+      display: none;
+      flex-direction: column !important;
+      align-items: center !important;
+      justify-content: center !important;
+      gap: 6px !important;
+      font-weight: 800 !important;
+      font-size: 0.95rem !important;
+      user-select: none !important;
+    }
+    .edge-sidebar-tab .edge-tab-text {
+      writing-mode: vertical-rl !important;
+      text-orientation: upright !important;
+      letter-spacing: 3px !important;
+      font-size: 0.78rem !important;
+      font-weight: 700 !important;
+    }
+
+    /* Sidebar */
+    .sidebar {
+      position: sticky;
+      top: 4.8rem;
+      background: var(--bg-surface);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      padding: 1.25rem;
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+      overflow-y: auto;
+      max-height: calc(100vh - 6rem);
+    }
+    .main-wrapper.sidebar-collapsed .sidebar {
+      display: none;
+    }
+
+    .sidebar-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-bottom: 0.5rem;
+      border-bottom: 1px solid var(--border-color);
+    }
+    .mode-switch-card {
+      background: var(--accent-gradient);
+      border-radius: var(--radius-md);
+      padding: 0.85rem 1rem;
+      color: white;
+      display: flex;
+      flex-direction: column;
+      gap: 0.45rem;
+    }
+    .mode-toggle-group {
+      display: flex;
+      background: rgba(0, 0, 0, 0.22);
+      border-radius: var(--radius-sm);
+      padding: 3px;
+    }
+    .mode-btn {
+      flex: 1;
+      text-align: center;
+      padding: 0.35rem 0.45rem;
+      font-size: 0.78rem;
+      font-weight: 700;
+      border-radius: 6px;
+      cursor: pointer;
+      color: rgba(255, 255, 255, 0.85);
+      border: none;
+      background: transparent;
+    }
+    .mode-btn.active {
+      background: white;
+      color: var(--primary);
+    }
+
+    .filter-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.35rem;
+    }
+    .chip {
+      padding: 0.35rem 0.7rem;
+      font-size: 0.78rem;
+      font-weight: 600;
+      border-radius: var(--radius-full);
+      border: 1px solid var(--border-color);
+      background: var(--bg-base);
+      color: var(--text-muted);
+      cursor: pointer;
+    }
+    .chip.active {
+      background: var(--primary);
+      border-color: var(--primary);
+      color: white;
+    }
+
+    /* Cards */
+    .question-list-container {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      width: 100%;
+    }
+    .question-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+      width: 100%;
+    }
+    .card-header {
+      padding: 1rem 1.35rem;
+      background: var(--bg-card-subtle);
+      border-bottom: 1px solid var(--border-color);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+    }
+    .q-number {
+      font-weight: 800;
+      font-size: calc(0.95rem * var(--font-scale));
+      color: var(--primary);
+      background: var(--primary-light);
+      padding: 0.2rem 0.65rem;
+      border-radius: var(--radius-full);
+    }
+    .tag {
+      font-size: calc(0.74rem * var(--font-scale));
+      font-weight: 600;
+      padding: 0.2rem 0.55rem;
+      border-radius: var(--radius-full);
+      background: var(--bg-surface);
+      border: 1px solid var(--border-color);
+      color: var(--text-muted);
+    }
+    .card-body {
+      padding: calc(1.35rem * var(--font-scale));
+      display: flex;
+      flex-direction: column;
+      gap: calc(1.25rem * var(--font-scale));
+    }
+    .q-title {
+      font-size: calc(1.15rem * var(--font-scale));
+      font-weight: 700;
+    }
+    .q-content {
+      font-size: calc(1.02rem * var(--font-scale));
+      line-height: 1.85;
+    }
+
+    /* Natural Adaptive Options Layout */
+    .q-options {
+      display: flex;
+      flex-wrap: wrap;
+      gap: calc(0.65rem * var(--font-scale));
+      width: 100%;
+    }
+    .option-item {
+      flex: 0 1 auto;
+      min-width: calc(120px * var(--font-scale));
+      max-width: 100%;
+      padding: calc(0.6rem * var(--font-scale)) calc(1.05rem * var(--font-scale));
+      border: 1.5px solid var(--border-color);
+      border-radius: var(--radius-md);
+      background: var(--bg-surface);
+      cursor: pointer;
+      font-size: calc(0.95rem * var(--font-scale));
+      font-weight: 500;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.65rem;
+      transition: all 0.2s ease;
+    }
+    .option-item:hover {
+      border-color: var(--primary);
+      background: var(--primary-light);
+    }
+    .option-item.correct-answer {
+      border-color: var(--success);
+      background: var(--success-bg);
+      color: var(--success);
+      font-weight: 700;
+    }
+    .option-item.selected-wrong {
+      border-color: var(--danger);
+      background: var(--danger-bg);
+      color: var(--danger);
+      font-weight: 700;
+    }
+    .opt-badge {
+      width: calc(26px * var(--font-scale));
+      height: calc(26px * var(--font-scale));
+      min-width: calc(26px * var(--font-scale));
+      border-radius: var(--radius-full);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--bg-card-subtle);
+      font-size: calc(0.85rem * var(--font-scale));
+      font-weight: 700;
+    }
+
+    /* Solution */
+    .solution-section {
+      border-top: 1px dashed var(--border-color);
+      padding-top: calc(1.15rem * var(--font-scale));
+      display: flex;
+      flex-direction: column;
+      gap: calc(0.9rem * var(--font-scale));
+    }
+    .solution-toggle-btn {
+      align-self: flex-start;
+      background: var(--bg-card-subtle);
+      color: var(--primary);
+      border: 1px solid var(--border-color);
+      padding: calc(0.45rem * var(--font-scale)) calc(1rem * var(--font-scale));
+      border-radius: var(--radius-full);
+      font-size: calc(0.85rem * var(--font-scale));
+      font-weight: 700;
+      cursor: pointer;
+    }
+    .solution-content {
+      background: var(--bg-card-subtle);
+      border-radius: var(--radius-md);
+      padding: calc(1.15rem * var(--font-scale)) calc(1.35rem * var(--font-scale));
+      border-left: 4px solid var(--primary);
+      display: flex;
+      flex-direction: column;
+      gap: calc(1rem * var(--font-scale));
+    }
+    .answer-callout {
+      background: var(--success-bg);
+      border: 1px solid var(--success-border);
+      color: var(--success);
+      padding: calc(0.7rem * var(--font-scale)) calc(0.95rem * var(--font-scale));
+      border-radius: var(--radius-sm);
+      font-weight: 700;
+      font-size: calc(0.95rem * var(--font-scale));
+    }
+    .step-item {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-sm);
+      padding: calc(0.85rem * var(--font-scale)) calc(1.15rem * var(--font-scale));
+    }
+    .step-item h5 {
+      color: var(--primary);
+      font-size: calc(0.95rem * var(--font-scale));
+      margin-bottom: 0.4rem;
+    }
+    .blindspot-card {
+      background: var(--warning-bg);
+      border: 1px solid var(--warning-border);
+      border-radius: var(--radius-md);
+      padding: calc(0.95rem * var(--font-scale)) calc(1.2rem * var(--font-scale));
+      display: flex;
+      gap: 0.85rem;
+    }
+
+    /* Modal */
+    .modal-overlay {
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0, 0, 0, 0.85);
+      backdrop-filter: blur(8px);
+      z-index: 999999;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem;
+    }
+    .modal-overlay.active { display: flex; }
+    .modal-img {
+      max-width: 92vw;
+      max-height: 80vh;
+      object-fit: contain;
+      background: white;
+      border-radius: var(--radius-md);
+    }
+    .modal-close {
+      position: absolute;
+      top: 1.5rem;
+      right: 1.5rem;
+      color: white;
+      font-size: 2rem;
+      cursor: pointer;
+      background: transparent;
+      border: none;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .navbar-container { padding: 0.6rem 0.85rem; }
+      .brand-subtitle { display: none; }
+      .main-wrapper { display: block; padding: 0 0.75rem; }
+      .sidebar { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Navbar -->
+  <header class="navbar">
+    <div class="navbar-container">
+      <div class="nav-left">
+        <button class="btn-sidebar-toggle" id="btnSidebarToggle" onclick="toggleSidebar()" title="收合/展開側邊欄">
+          <i class="fa-solid fa-bars-staggered" id="sidebarToggleIcon"></i>
+        </button>
+        
+        <a href="index.html" class="brand">
+          <div class="brand-logo"><i class="fa-solid fa-flask"></i></div>
+          <div class="brand-text">
+            <span class="brand-title">Miley 自然錯題本</span>
+            <span class="brand-subtitle">國中理化與會考複習系統</span>
+          </div>
+        </a>
+
+        <!-- Subject Switcher -->
+        <div class="subject-nav-tabs">
+          <a href="math.html" class="subject-nav-tab">📐 數學</a>
+          <a href="science.html" class="subject-nav-tab active">🔬 自然</a>
+        </div>
+      </div>
+
+      <div class="nav-controls">
+        <div class="font-sizer-widget">
+          <span class="font-sizer-label"><i class="fa-solid fa-text-height"></i> 字級</span>
+          <button class="btn-sizer" onclick="adjustFontSize(-0.15)"><i class="fa-solid fa-minus"></i></button>
+          <span class="font-sizer-value" id="fontSizeValue">100%</span>
+          <button class="btn-sizer" onclick="adjustFontSize(0.15)"><i class="fa-solid fa-plus"></i></button>
+          <button class="btn-sizer" onclick="resetFontSize()"><i class="fa-solid fa-rotate-left" style="font-size: 0.75rem;"></i></button>
+        </div>
+
+        <div class="theme-switcher-group">
+          <button class="theme-btn active" id="themeBtnLight" onclick="setTheme('light')"><i class="fa-solid fa-sun"></i></button>
+          <button class="theme-btn" id="themeBtnDark" onclick="setTheme('dark')"><i class="fa-solid fa-moon"></i></button>
+          <button class="theme-btn" id="themeBtnSepia" onclick="setTheme('sepia')"><i class="fa-solid fa-eye"></i></button>
+        </div>
+
+        <button class="btn btn-ghost" onclick="toggleAllSolutions()"><i class="fa-solid fa-eye"></i> <span>全部解析</span></button>
+        <button class="btn btn-ghost" onclick="window.print()"><i class="fa-solid fa-print"></i> <span>列印</span></button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Header -->
+  <section class="hero">
+    <div class="hero-container">
+      <div class="hero-header">
+        <div class="hero-headline">
+          <h1>🔬 自然科（理化）錯題庫</h1>
+          <p>國中八～九年級：凸透鏡成像、力與運動、酸鹼鹽、電與磁</p>
+        </div>
+        <div class="font-preset-badges">
+          <button class="font-preset-btn active" id="preset100" onclick="setFontScale(1.0)">標準 100%</button>
+          <button class="font-preset-btn" id="preset130" onclick="setFontScale(1.3)">舒適 130%</button>
+          <button class="font-preset-btn" id="preset160" onclick="setFontScale(1.6)">大字 160%</button>
+          <button class="font-preset-btn" id="preset200" onclick="setFontScale(2.0)">特大 200%</button>
+        </div>
+      </div>
+
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-icon total"><i class="fa-solid fa-book-open"></i></div>
+          <div class="stat-info">
+            <div class="stat-value" id="statTotalCount">1</div>
+            <div class="stat-label">錯題總數 (題)</div>
+          </div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon mastered"><i class="fa-solid fa-circle-check"></i></div>
+          <div class="stat-info">
+            <div class="stat-value" id="statMasteredCount">0</div>
+            <div class="stat-label">已完全掌握 (題)</div>
+          </div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon review"><i class="fa-solid fa-star"></i></div>
+          <div class="stat-info">
+            <div class="stat-value" id="statStarredCount">0</div>
+            <div class="stat-label">星號重點複習</div>
+          </div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon rate"><i class="fa-solid fa-chart-line"></i></div>
+          <div class="stat-info">
+            <div class="stat-value" id="statProgressRate">0%</div>
+            <div class="stat-label">複習精熟度</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sticky Edge Floating Tab -->
+  <button class="edge-sidebar-tab" id="edgeSidebarTab" onclick="toggleSidebar()">
+    <i class="fa-solid fa-chevron-right"></i>
+    <span class="edge-tab-text">展開篩選</span>
+  </button>
+
+  <!-- Main Content -->
+  <main class="main-wrapper" id="mainWrapper">
+    <aside class="sidebar" id="sidebarElement">
+      <div class="sidebar-header">
+        <h3><i class="fa-solid fa-sliders"></i> 篩選與設定</h3>
+        <button class="btn" style="padding: 2px 6px;" onclick="toggleSidebar()"><i class="fa-solid fa-chevron-left"></i></button>
+      </div>
+
+      <div class="mode-switch-card">
+        <h4><i class="fa-solid fa-wand-magic-sparkles"></i> 複習模式</h4>
+        <div class="mode-toggle-group">
+          <button class="mode-btn active" id="btnModeBrowse" onclick="setAppMode('browse')">📖 總覽解析</button>
+          <button class="mode-btn" id="btnModeQuiz" onclick="setAppMode('quiz')">✍️ 刷題測驗</button>
+        </div>
+      </div>
+
+      <div>
+        <div style="font-size: 0.78rem; font-weight: 700; color: var(--text-light); margin-bottom: 0.4rem;">單元分類</div>
+        <div class="filter-chips">
+          <div class="chip active" onclick="setFilter('topic', 'all', this)">全部單元</div>
+          <div class="chip" onclick="setFilter('topic', '透鏡', this)">透鏡與光學</div>
+        </div>
+      </div>
+    </aside>
+
+    <section class="question-list-container">
+      <div style="display: flex; justify-content: space-between; font-size: 0.85rem; color: var(--text-muted);">
+        <div>目前顯示 <strong id="filterMatchCount" style="color: var(--primary);">1</strong> 題理化錯題</div>
+      </div>
+
+      <div id="questionCardsWrapper" class="question-list-container">
+        <!-- Questions injected via JS -->
+      </div>
+    </section>
+  </main>
+
+  <!-- Modal Lightbox -->
+  <div class="modal-overlay" id="imageModal" onclick="closeModal()">
+    <button class="modal-close" onclick="closeModal()"><i class="fa-solid fa-xmark"></i></button>
+    <img src="" alt="放大圖" class="modal-img" id="modalImg" onclick="event.stopPropagation()">
+  </div>
+
+  <script>
+    const scienceQuestions = [
+      {
+        id: 1,
+        title: "凸透鏡成像實驗與焦距判斷（物距與像距數據分析與不等式逼近法）",
+        date: "2026-08-22",
+        grade: "八年級",
+        unit: "第四章 光、顏色與影像",
+        topics: ["透鏡", "凸透鏡成像", "像距物距", "等大實像"],
+        question: `
+          凸透鏡成像實驗，物距透鏡 $p\\text{ cm}$ 時，調整屏距透鏡為 $q\\text{ cm}$ 時可得清晰像，數據如表所示，則此凸透鏡的焦距最有可能是下列何者？
+          <div style="overflow-x: auto; margin: 0.85rem 0;">
+            <table style="width: 100%; border-collapse: collapse; text-align: center; font-size: calc(0.95rem * var(--font-scale)); background: var(--bg-card-subtle); border-radius: var(--radius-sm);">
+              <tr style="border-bottom: 1px solid var(--border-color);">
+                <th style="padding: 8px 12px;">$p$（公分）</th><td>80</td><td>60</td><td>40</td><td>35</td><td>25</td>
+              </tr>
+              <tr>
+                <th style="padding: 8px 12px;">$q$（公分）</th><td>20</td><td>21.8</td><td>26.7</td><td>29.5</td><td>44.4</td>
+              </tr>
+            </table>
+          </div>
+        `,
+        options: [
+          { key: "A", text: "24 cm" },
+          { key: "B", text: "20 cm" },
+          { key: "C", text: "16 cm" },
+          { key: "D", text: "12 cm" }
+        ],
+        answerKey: "C",
+        answerText: "正確答案：(C) 16 cm",
+        imageQ: "images/science_1.png",
+        imageSource: "images/science_1_source.png",
+        steps: [
+          {
+            title: "破題方法一：【國中首選】兩倍焦距等大實像點逼近法",
+            content: "• 當物在 $2f$ 上時，像在 $2f$ 上，此時 $p = q = 2f$（等大像）。<br>• 觀察第 4 組 $p=35, q=29.5$（$p > q$ 物在 $2f$ 外）與第 5 組 $p=25, q=44.4$（$p < q$ 物在 $2f$ 內）。<br>• 可知轉折點 $2f$ 必在 $25 \\sim 35$ 之間 $\\implies 12.5 < f < 17.5\\text{ cm}$，選項僅 <strong>(C) 16 cm</strong> 符合！"
+          },
+          {
+            title: "破題方法二：嚴格不等式夾擠法",
+            content: "由 $p=35, q=29.5$ 且 $p > q$ 得 $35 > 2f \\implies f < 17.5\\text{ cm}$ 且 $f < 29.5 < 2f \\implies f > 14.75\\text{ cm}$。<br>得出焦距範圍：$$14.75 < f < 17.5\\text{ cm}$$"
+          },
+          {
+            title: "破題方法三：【極速驗算法】薄透鏡成像公式",
+            content: "代入第 1 組整數 $p=80, q=20$：$$\\frac{1}{f} = \\frac{1}{80} + \\frac{1}{20} = \\frac{5}{80} = \\frac{1}{16} \\implies f = 16\\text{ cm}$$"
+          }
+        ],
+        blindspot: "看到數據大小互換（p > q 變成 p < q），交界處就是兩倍焦距等大像點；另外第一組 q=20 必大於焦距，可秒殺排除 (A) 24 與 (B) 20！"
+      }
+    ];
+
+    let currentMode = 'browse';
+    let fontScale = 1.0;
+    let userStarred = JSON.parse(localStorage.getItem('miley_sci_starred') || '[]');
+    let userMastered = JSON.parse(localStorage.getItem('miley_sci_mastered') || '[]');
+    let userSelections = {};
+
+    document.addEventListener('DOMContentLoaded', () => {
+      initTheme();
+      initFontScale();
+      renderQuestions();
+      updateStats();
+    });
+
+    function initTheme() {
+      const savedTheme = localStorage.getItem('miley_theme') || 'light';
+      setTheme(savedTheme, false);
+    }
+    function setTheme(theme, save = true) {
+      document.documentElement.setAttribute('data-theme', theme);
+      if (save) localStorage.setItem('miley_theme', theme);
+      document.getElementById('themeBtnLight').classList.toggle('active', theme === 'light');
+      document.getElementById('themeBtnDark').classList.toggle('active', theme === 'dark');
+      document.getElementById('themeBtnSepia').classList.toggle('active', theme === 'sepia');
+    }
+
+    function initFontScale() {
+      const savedScale = parseFloat(localStorage.getItem('miley_font_scale')) || 1.0;
+      setFontScale(savedScale, false);
+    }
+    function setFontScale(scale, save = true) {
+      fontScale = Math.min(Math.max(scale, 0.60), 3.00);
+      document.documentElement.style.setProperty('--font-scale', fontScale);
+      document.getElementById('fontSizeValue').innerText = `${Math.round(fontScale * 100)}%`;
+      [1.0, 1.3, 1.6, 2.0].forEach(p => {
+        const btn = document.getElementById(`preset${Math.round(p*100)}`);
+        if (btn) btn.classList.toggle('active', Math.abs(fontScale - p) < 0.08);
+      });
+      if (save) localStorage.setItem('miley_font_scale', fontScale);
+    }
+    function adjustFontSize(delta) { setFontScale(Math.round((fontScale + delta) * 100) / 100); }
+    function resetFontSize() { setFontScale(1.0); }
+
+    function toggleSidebar() {
+      const w = document.getElementById('mainWrapper');
+      const isCollapsed = !w.classList.contains('sidebar-collapsed');
+      w.classList.toggle('sidebar-collapsed', isCollapsed);
+      document.getElementById('edgeSidebarTab').style.display = isCollapsed ? 'flex' : 'none';
+    }
+
+    function setAppMode(mode) {
+      currentMode = mode;
+      document.getElementById('btnModeBrowse').classList.toggle('active', mode === 'browse');
+      document.getElementById('btnModeQuiz').classList.toggle('active', mode === 'quiz');
+      renderQuestions();
+    }
+
+    function selectOption(qId, key) {
+      userSelections[qId] = key;
+      renderQuestions();
+    }
+
+    function toggleCardSolution(qId) {
+      const el = document.getElementById(`solution-${qId}`);
+      if (el) el.style.display = el.style.display === 'none' ? 'flex' : 'none';
+    }
+
+    let allOpen = false;
+    function toggleAllSolutions() {
+      allOpen = !allOpen;
+      document.querySelectorAll('.solution-content').forEach(el => el.style.display = allOpen ? 'flex' : 'none');
+    }
+
+    function toggleStar(id) {
+      userStarred = userStarred.includes(id) ? userStarred.filter(x => x !== id) : [...userStarred, id];
+      localStorage.setItem('miley_sci_starred', JSON.stringify(userStarred));
+      renderQuestions();
+      updateStats();
+    }
+
+    function toggleMaster(id) {
+      userMastered = userMastered.includes(id) ? userMastered.filter(x => x !== id) : [...userMastered, id];
+      localStorage.setItem('miley_sci_mastered', JSON.stringify(userMastered));
+      renderQuestions();
+      updateStats();
+    }
+
+    function updateStats() {
+      const total = scienceQuestions.length;
+      document.getElementById('statTotalCount').innerText = total;
+      document.getElementById('statMasteredCount').innerText = userMastered.length;
+      document.getElementById('statStarredCount').innerText = userStarred.length;
+      document.getElementById('statProgressRate').innerText = `${total ? Math.round(userMastered.length/total*100) : 0}%`;
+    }
+
+    function renderQuestions() {
+      const wrapper = document.getElementById('questionCardsWrapper');
+      wrapper.innerHTML = scienceQuestions.map(q => {
+        const isStarred = userStarred.includes(q.id);
+        const isMastered = userMastered.includes(q.id);
+        const userChoice = userSelections[q.id];
+        const isAnswered = userChoice !== undefined;
+        const showSol = currentMode === 'browse' || isAnswered;
+
+        return `
+          <article class="question-card">
+            <div class="card-header">
+              <div style="display:flex; gap:0.5rem; align-items:center;">
+                <span class="q-number"><i class="fa-solid fa-bookmark"></i> 理化錯題 ${q.id}</span>
+                <span class="tag">${q.grade}</span>
+                <span class="tag">${q.unit.split(' ')[0]}</span>
+              </div>
+              <div style="display:flex; gap:0.4rem;">
+                <button class="btn btn-ghost" style="padding:4px 8px;" onclick="toggleStar(${q.id})"><i class="fa-${isStarred?'solid':'regular'} fa-star" style="color:${isStarred?'#eab308':'inherit'};"></i></button>
+                <button class="btn btn-ghost" style="padding:4px 8px;" onclick="toggleMaster(${q.id})"><i class="fa-solid fa-check" style="color:${isMastered?'#10b981':'inherit'};"></i></button>
+              </div>
+            </div>
+
+            <div class="card-body">
+              <h3 class="q-title">${q.title}</h3>
+              <div class="q-content">${q.question}</div>
+
+              ${q.imageQ ? `
+                <div style="text-align:center; background:var(--bg-card-subtle); padding:10px; border-radius:8px;">
+                  <img src="${q.imageQ}" style="max-height:220px; max-width:100%; cursor:zoom-in; border-radius:6px;" onclick="openModal('${q.imageQ}')" title="點擊放大題目圖">
+                </div>
+              ` : ''}
+
+              <!-- Adaptive Options -->
+              <div class="q-options">
+                ${q.options.map(opt => {
+                  let optClass = 'option-item';
+                  if (currentMode === 'browse' || isAnswered) {
+                    if (opt.key === q.answerKey) optClass += ' correct-answer';
+                    else if (userChoice === opt.key) optClass += ' selected-wrong';
+                  }
+                  return `
+                    <div class="${optClass}" onclick="selectOption(${q.id}, '${opt.key}')">
+                      <span class="opt-badge">${opt.key}</span>
+                      <span>${opt.text}</span>
+                      ${(currentMode === 'browse' || isAnswered) && opt.key === q.answerKey ? '<i class="fa-solid fa-circle-check" style="margin-left:auto; color:var(--success);"></i>' : ''}
+                    </div>
+                  `;
+                }).join('')}
+              </div>
+
+              <!-- Solution -->
+              <div class="solution-section">
+                <button class="solution-toggle-btn" onclick="toggleCardSolution(${q.id})">
+                  <i class="fa-solid fa-lightbulb"></i> <span>${showSol ? '收合詳解與盲點' : '顯示完整詳解'}</span>
+                </button>
+
+                <div class="solution-content" id="solution-${q.id}" style="display: ${showSol ? 'flex' : 'none'};">
+                  <div class="answer-callout"><i class="fa-solid fa-key"></i> <span>${q.answerText}</span></div>
+                  ${q.steps.map(s => `
+                    <div class="step-item">
+                      <h5><i class="fa-solid fa-arrow-right-long"></i> ${s.title}</h5>
+                      <p>${s.content}</p>
+                    </div>
+                  `).join('')}
+                  <div class="blindspot-card">
+                    <i class="fa-solid fa-triangle-exclamation" style="color:var(--warning); margin-top:3px;"></i>
+                    <div>
+                      <h5 style="color:#92400e; font-weight:700; margin-bottom:4px;">🧠 思考盲點分析</h5>
+                      <p style="font-size:0.9rem;">${q.blindspot}</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+        `;
+      }).join('');
+
+      if (window.renderMathInElement) {
+        renderMathInElement(wrapper, {
+          delimiters: [{ left: '$$', right: '$$', display: true }, { left: '$', right: '$', display: false }],
+          throwOnError: false
+        });
+      }
+    }
+
+    function openModal(src) {
+      document.getElementById('modalImg').src = src;
+      document.getElementById('imageModal').classList.add('active');
+    }
+    function closeModal() {
+      document.getElementById('imageModal').classList.remove('active');
+    }
+  </script>
+</body>
+</html>
