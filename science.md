@@ -98,3 +98,11 @@ $$\implies f = 16\text{ cm}$$
 </details>
 
 [🖼️ 查看原始完整截圖（💡 提示：點擊連結開啟圖片後，可將分頁拖曳至右側或按 Ctrl + \ 分割視窗對照）](images/science_1_source.png)
+
+---
+
+### 📺 推薦 YouTube 學習資源（影音觀念加強）
+*   ▶️ **[米蘭老師：凸透鏡成像超神記憶與解題技巧](https://www.youtube.com/results?search_query=米蘭老師+凸透鏡成像)**：最適合國中生的表格口訣與快速破題記憶法。
+*   ▶️ **[均一教育平台：凸透鏡成像作圖法及成像性質](https://www.youtube.com/results?search_query=均一+凸透鏡成像)**：基礎動畫觀念建立，清楚示範光線如何通過焦點與兩倍焦距。
+*   ▶️ **[國中理化：透鏡成像物距像距考前精華題型拆解](https://www.youtube.com/results?search_query=國中理化+透鏡成像+考前複習)**：精闢整理歷屆會考「物距 p vs 像距 q」數據分析與表格考題。
+

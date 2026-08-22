@@ -940,19 +940,24 @@
         imageSource: "images/science_1_source.png",
         steps: [
           {
-            title: "破題方法一：【國中首選】兩倍焦距等大實像點逼近法",
-            content: "• 當物在 $2f$ 上時，像在 $2f$ 上，此時 $p = q = 2f$（等大像）。<br>• 觀察第 4 組 $p=35, q=29.5$（$p > q$ 物在 $2f$ 外）與第 5 組 $p=25, q=44.4$（$p < q$ 物在 $2f$ 內）。<br>• 可知轉折點 $2f$ 必在 $25 \\sim 35$ 之間 $\\implies 12.5 < f < 17.5\\text{ cm}$，選項僅 <strong>(C) 16 cm</strong> 符合！"
+            title: "破題方法一：【國中會考直覺法】找「兩倍焦距等大像」的轉折點",
+            content: "• <strong>核心觀念</strong>：當物體放在 <strong>兩倍焦距（2f）</strong> 時，像距也會剛好等於 <strong>兩倍焦距（2f）</strong>，此時「物距 = 像距（p = q）」，成倒立等大實像。<br>• <strong>觀察表格數據</strong>：<br>&nbsp;&nbsp;• 第 4 組：p = 35、q = 29.5 ➔ 物距大於像距（p > q，物體在 2f 外）<br>&nbsp;&nbsp;• 第 5 組：p = 25、q = 44.4 ➔ 物距小於像距（p < q，物體在 2f 內）<br>• <strong>結論</strong>：兩倍焦距（2f）必定介於 <strong>25 到 35 之間</strong>！<br>&nbsp;&nbsp;➔ 焦距 f 範圍為 <strong>12.5 到 17.5 公分</strong>，選項中只有 <strong>(C) 16 cm</strong> 符合！"
           },
           {
-            title: "破題方法二：嚴格不等式夾擠法",
-            content: "由 $p=35, q=29.5$ 且 $p > q$ 得 $35 > 2f \\implies f < 17.5\\text{ cm}$ 且 $f < 29.5 < 2f \\implies f > 14.75\\text{ cm}$。<br>得出焦距範圍：$$14.75 < f < 17.5\\text{ cm}$$"
+            title: "破題方法二：【嚴格範圍夾擠法】",
+            content: "由第 4 組數據（p = 35、q = 29.5）：<br>• 物在兩倍焦距外：35 > 2f ➔ <strong>f < 17.5 cm</strong><br>• 像在焦距與兩倍焦距間：2f > 29.5 ➔ <strong>f > 14.75 cm</strong><br>• 綜合範圍：<strong>14.75 cm < f < 17.5 cm</strong> ➔ 答案鎖定 <strong>16 cm</strong>。"
           },
           {
-            title: "破題方法三：【極速驗算法】薄透鏡成像公式",
-            content: "代入第 1 組整數 $p=80, q=20$：$$\\frac{1}{f} = \\frac{1}{80} + \\frac{1}{20} = \\frac{5}{80} = \\frac{1}{16} \\implies f = 16\\text{ cm}$$"
+            title: "破題方法三：【秒殺驗算法】透鏡成像公式：1/f = 1/p + 1/q",
+            content: "代入第 1 組整數數據（p = 80、q = 20）：<br>1/f = 1/80 + 1/20 = 1/80 + 4/80 = 5/80 = 1/16 ➔ <strong>f = 16 cm</strong>！"
           }
         ],
-        blindspot: "看到數據大小互換（p > q 變成 p < q），交界處就是兩倍焦距等大像點；另外第一組 q=20 必大於焦距，可秒殺排除 (A) 24 與 (B) 20！"
+        blindspot: "看到表格數據大小互換（p > q 突然變成 p < q），交界處就是兩倍焦距等大像點；另外第一組 q = 20 cm 時像距必定大於焦距（q > f），所以焦距一定小於 20 cm，可以直接排除 (A) 24 與 (B) 20！",
+        videos: [
+          { title: "米蘭老師：凸透鏡成像超神記憶與解題技巧", url: "https://www.youtube.com/results?search_query=米蘭老師+凸透鏡成像" },
+          { title: "均一教育平台：凸透鏡成像作圖法與性質完整教學", url: "https://www.youtube.com/results?search_query=均一+凸透鏡成像" },
+          { title: "理化考前精華：透鏡成像物距像距表格題型拆解", url: "https://www.youtube.com/results?search_query=國中理化+透鏡成像+考前複習" }
+        ]
       }
     ];
 
@@ -1122,6 +1127,21 @@
                       <p style="font-size:0.9rem;">${q.blindspot}</p>
                     </div>
                   </div>
+
+                  ${q.videos ? `
+                    <div style="background:var(--bg-surface); border:1px solid var(--border-color); border-radius:var(--radius-md); padding:0.9rem 1.1rem; margin-top:0.4rem;">
+                      <h5 style="color:#dc2626; font-size:0.92rem; font-weight:700; margin-bottom:0.5rem; display:flex; align-items:center; gap:6px;">
+                        <i class="fa-brands fa-youtube" style="font-size:1.15rem;"></i> 推薦 YouTube 影音講解與實驗觀念加強
+                      </h5>
+                      <div style="display:flex; flex-direction:column; gap:6px;">
+                        ${q.videos.map(v => `
+                          <a href="${v.url}" target="_blank" rel="noopener noreferrer" style="color:var(--primary); font-size:0.86rem; text-decoration:none; display:inline-flex; align-items:center; gap:6px; font-weight:600;">
+                            <i class="fa-solid fa-circle-play" style="color:#dc2626;"></i> ${v.title} <i class="fa-solid fa-arrow-up-right-from-square" style="font-size:0.72rem; color:var(--text-light);"></i>
+                          </a>
+                        `).join('')}
+                      </div>
+                    </div>
+                  ` : ''}
                 </div>
               </div>
             </div>
