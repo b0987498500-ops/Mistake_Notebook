@@ -18,7 +18,7 @@
 
   <style>
     :root {
-      /* Dynamic Font Scaling - Controlled via UI / JS */
+      /* Dynamic Font Scaling - Supports from 60% up to 300%+ */
       --font-scale: 1.0;
       
       /* Base Colors */
@@ -86,7 +86,7 @@
       --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.4);
     }
 
-    /* Sepia / Eye-Care Warm Mode (護眼暖色模式) */
+    /* Sepia / Eye-Care Warm Mode (護眼羊皮紙暖色模式) */
     [data-theme="sepia"] {
       --bg-base: #fbf7ee;
       --bg-surface: #f4ecd8;
@@ -112,7 +112,7 @@
       --warning-border: #feeaa8;
     }
 
-    /* Universal Box-Sizing and Anti-Horizontal Scroll Rules */
+    /* Universal Box-Sizing & Absolute Zero Horizontal Scrollbar Guarantee */
     *, *::before, *::after {
       box-sizing: border-box;
       margin: 0;
@@ -129,7 +129,7 @@
       font-family: 'Outfit', 'Noto Sans TC', -apple-system, BlinkMacSystemFont, sans-serif;
       background-color: var(--bg-base);
       color: var(--text-main);
-      line-height: 1.7;
+      line-height: 1.75;
       min-height: 100vh;
       display: flex;
       flex-direction: column;
@@ -139,7 +139,7 @@
       word-break: break-word;
     }
 
-    /* Scrollbar Styling */
+    /* Custom Scrollbar */
     ::-webkit-scrollbar {
       width: 8px;
       height: 8px;
@@ -162,19 +162,19 @@
       z-index: 100;
       backdrop-filter: blur(16px);
       -webkit-backdrop-filter: blur(16px);
-      background-color: rgba(255, 255, 255, 0.88);
+      background-color: rgba(255, 255, 255, 0.90);
       border-bottom: 1px solid var(--border-color);
       transition: background-color var(--transition-speed) ease, border-color var(--transition-speed) ease;
     }
     [data-theme="dark"] .navbar {
-      background-color: rgba(17, 24, 39, 0.88);
+      background-color: rgba(17, 24, 39, 0.90);
     }
     [data-theme="sepia"] .navbar {
-      background-color: rgba(244, 236, 216, 0.92);
+      background-color: rgba(244, 236, 216, 0.94);
     }
 
     .navbar-container {
-      max-width: 1560px;
+      max-width: 1600px;
       margin: 0 auto;
       padding: 0.75rem 1.25rem;
       display: flex;
@@ -264,7 +264,7 @@
       letter-spacing: 0.04em;
     }
 
-    /* Navbar Center / Right Controls */
+    /* Navbar Controls */
     .nav-controls {
       display: flex;
       align-items: center;
@@ -272,7 +272,7 @@
       flex-wrap: wrap;
     }
 
-    /* Font Size Sizer Controller UI */
+    /* Font Size Sizer Controller Widget */
     .font-sizer-widget {
       display: flex;
       align-items: center;
@@ -285,7 +285,7 @@
     }
 
     .font-sizer-label {
-      font-size: 0.78rem;
+      font-size: 0.8rem;
       font-weight: 700;
       color: var(--text-muted);
       padding: 0 6px;
@@ -296,8 +296,8 @@
     }
 
     .btn-sizer {
-      width: 28px;
-      height: 28px;
+      width: 30px;
+      height: 30px;
       border-radius: var(--radius-full);
       border: none;
       background: var(--bg-surface);
@@ -321,15 +321,15 @@
     }
 
     .font-sizer-value {
-      min-width: 48px;
+      min-width: 52px;
       text-align: center;
-      font-size: 0.82rem;
+      font-size: 0.86rem;
       font-weight: 800;
       color: var(--primary);
       font-family: 'Fira Code', monospace;
     }
 
-    /* Quick Action Buttons */
+    /* Action Buttons */
     .btn {
       display: inline-flex;
       align-items: center;
@@ -366,15 +366,7 @@
       border-color: var(--text-light);
     }
 
-    .btn-icon-round {
-      width: 36px;
-      height: 36px;
-      padding: 0;
-      justify-content: center;
-      border-radius: var(--radius-full);
-    }
-
-    /* Theme Picker Dropdown / Switcher */
+    /* Theme Picker Group */
     .theme-switcher-group {
       display: flex;
       background: var(--bg-card-subtle);
@@ -402,7 +394,7 @@
       box-shadow: var(--shadow-sm);
     }
 
-    /* Top Banner / Hero Statistics Dashboard */
+    /* Top Hero Dashboard */
     .hero {
       background: linear-gradient(180deg, rgba(79, 70, 229, 0.05) 0%, rgba(248, 250, 252, 0) 100%);
       padding: 1.5rem 1.25rem 1rem;
@@ -416,7 +408,7 @@
     }
 
     .hero-container {
-      max-width: 1560px;
+      max-width: 1600px;
       margin: 0 auto;
     }
 
@@ -430,7 +422,7 @@
     }
 
     .hero-headline h1 {
-      font-size: calc(1.6rem * var(--font-scale));
+      font-size: calc(1.55rem * var(--font-scale));
       font-weight: 800;
       letter-spacing: -0.02em;
       line-height: 1.25;
@@ -445,7 +437,7 @@
       margin-top: 0.25rem;
     }
 
-    /* Responsive Font Scale Quick Presets */
+    /* Font Presets */
     .font-preset-badges {
       display: flex;
       align-items: center;
@@ -455,6 +447,7 @@
       border: 1px solid var(--border-color);
       border-radius: var(--radius-full);
       box-shadow: var(--shadow-sm);
+      flex-wrap: wrap;
     }
     .font-preset-label {
       font-size: 0.78rem;
@@ -463,7 +456,7 @@
       margin-right: 0.25rem;
     }
     .font-preset-btn {
-      padding: 0.2rem 0.6rem;
+      padding: 0.25rem 0.65rem;
       font-size: 0.76rem;
       font-weight: 700;
       border-radius: var(--radius-full);
@@ -539,7 +532,7 @@
 
     /* Main Content Layout with Dynamic Collapsible Grid */
     .main-wrapper {
-      max-width: 1560px;
+      max-width: 1600px;
       margin: 1.25rem auto 3rem;
       padding: 0 1.25rem;
       display: grid;
@@ -548,6 +541,7 @@
       align-items: start;
       transition: grid-template-columns var(--transition-speed) var(--transition-ease);
       width: 100%;
+      position: relative;
     }
 
     /* Collapsed Sidebar State -> Expands Question Area to 100% Full Width! */
@@ -613,9 +607,12 @@
       color: var(--text-muted);
       cursor: pointer;
       font-size: 0.95rem;
-      padding: 4px;
-      border-radius: 4px;
+      padding: 4px 8px;
+      border-radius: 6px;
       transition: all 0.2s;
+      display: flex;
+      align-items: center;
+      gap: 4px;
     }
     .btn-collapse-sidebar:hover {
       color: var(--primary);
@@ -743,23 +740,46 @@
       flex-direction: column;
       gap: 1.5rem;
       width: 100%;
-      min-width: 0; /* Prevents CSS Grid item blowout */
+      min-width: 0; /* Prevents CSS Grid blowout */
     }
 
-    /* Floating / In-content Expand Sidebar Bar when Collapsed */
-    .collapsed-notice-bar {
+    /* Fixed Left-Edge Middle Floating Tab (始終保持在最左側垂直中間高度位置的 > 展開按鈕) */
+    .edge-sidebar-tab {
+      position: fixed;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 105;
+      background: var(--accent-gradient);
+      color: white;
+      border: none;
+      border-radius: 0 14px 14px 0;
+      padding: 16px 10px 16px 8px;
+      cursor: pointer;
+      box-shadow: 2px 0 16px rgba(79, 70, 229, 0.45);
       display: none;
+      flex-direction: column;
       align-items: center;
-      justify-content: space-between;
-      background: var(--bg-surface);
-      border: 1px solid var(--border-color);
-      border-radius: var(--radius-md);
-      padding: 0.65rem 1rem;
-      box-shadow: var(--shadow-sm);
-      margin-bottom: 0.25rem;
+      gap: 8px;
+      font-weight: 700;
+      font-size: 0.95rem;
+      transition: all 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+      user-select: none;
     }
-    .main-wrapper.sidebar-collapsed .collapsed-notice-bar {
+    .main-wrapper.sidebar-collapsed .edge-sidebar-tab {
       display: flex;
+    }
+    .edge-sidebar-tab:hover {
+      padding-right: 16px;
+      transform: translateY(-50%) scale(1.08);
+      box-shadow: 4px 0 24px rgba(79, 70, 229, 0.65);
+    }
+    .edge-sidebar-tab .edge-tab-text {
+      writing-mode: vertical-rl;
+      text-orientation: upright;
+      letter-spacing: 3px;
+      font-size: 0.78rem;
+      margin-top: 2px;
     }
 
     .list-meta-bar {
@@ -879,10 +899,10 @@
 
     /* Card Body with Dynamic Font Scale */
     .card-body {
-      padding: 1.35rem;
+      padding: calc(1.35rem * var(--font-scale));
       display: flex;
       flex-direction: column;
-      gap: 1.25rem;
+      gap: calc(1.25rem * var(--font-scale));
       width: 100%;
     }
 
@@ -897,9 +917,9 @@
     }
 
     .q-content {
-      font-size: calc(1rem * var(--font-scale));
+      font-size: calc(1.02rem * var(--font-scale));
       color: var(--text-main);
-      line-height: 1.8;
+      line-height: 1.85;
       word-wrap: break-word;
       overflow-wrap: break-word;
       word-break: break-word;
@@ -920,7 +940,7 @@
     }
 
     .q-image {
-      max-height: 250px;
+      max-height: 260px;
       max-width: 100%;
       object-fit: contain;
       border-radius: var(--radius-sm);
@@ -934,7 +954,7 @@
     }
 
     .image-caption {
-      font-size: calc(0.78rem * var(--font-scale));
+      font-size: calc(0.8rem * var(--font-scale));
       color: var(--text-muted);
       display: flex;
       align-items: center;
@@ -944,9 +964,8 @@
     /* Fluid Multi-column Options List (Auto-wrapping on font zoom) */
     .q-options {
       display: grid;
-      /* Dynamic breakpoint: automatically drops to 1 column if font scale is huge! */
       grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
-      gap: 0.75rem;
+      gap: calc(0.75rem * var(--font-scale));
       width: 100%;
     }
 
@@ -1011,10 +1030,10 @@
     /* Solution Section */
     .solution-section {
       border-top: 1px dashed var(--border-color);
-      padding-top: 1.15rem;
+      padding-top: calc(1.15rem * var(--font-scale));
       display: flex;
       flex-direction: column;
-      gap: 0.9rem;
+      gap: calc(0.9rem * var(--font-scale));
       width: 100%;
     }
 
@@ -1045,7 +1064,7 @@
       border-left: 4px solid var(--primary);
       display: flex;
       flex-direction: column;
-      gap: 1rem;
+      gap: calc(1rem * var(--font-scale));
       animation: fadeIn 0.3s ease;
       width: 100%;
       word-wrap: break-word;
@@ -1074,7 +1093,7 @@
     .steps-list {
       display: flex;
       flex-direction: column;
-      gap: 0.75rem;
+      gap: calc(0.75rem * var(--font-scale));
       width: 100%;
     }
 
@@ -1097,7 +1116,7 @@
     }
     .step-item p {
       font-size: calc(0.92rem * var(--font-scale));
-      line-height: 1.75;
+      line-height: 1.8;
     }
 
     /* Blind Spot Box */
@@ -1144,7 +1163,7 @@
       font-size: 1.08em;
     }
 
-    /* Image Modal / Lightbox */
+    /* Image Lightbox Modal */
     .modal-overlay {
       position: fixed;
       top: 0;
@@ -1213,34 +1232,6 @@
       margin-bottom: 1rem;
     }
 
-    /* Floating Quick Control Bar (FAB) */
-    .fab-sidebar-reopen {
-      position: fixed;
-      bottom: 1.75rem;
-      left: 1.75rem;
-      z-index: 90;
-      background: var(--primary);
-      color: white;
-      border: none;
-      border-radius: var(--radius-full);
-      padding: 0.75rem 1.25rem;
-      font-weight: 700;
-      font-size: 0.9rem;
-      display: none;
-      align-items: center;
-      gap: 0.5rem;
-      box-shadow: 0 8px 20px rgba(79, 70, 229, 0.4);
-      cursor: pointer;
-      transition: all 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
-    }
-    .fab-sidebar-reopen:hover {
-      transform: translateY(-3px) scale(1.04);
-      background: var(--primary-hover);
-    }
-    .main-wrapper.sidebar-collapsed .fab-sidebar-reopen {
-      display: inline-flex;
-    }
-
     /* Footer */
     footer {
       margin-top: auto;
@@ -1254,7 +1245,7 @@
 
     /* Print Styles */
     @media print {
-      .navbar, .sidebar, .hero-header, .stat-card, .btn, .solution-toggle-btn, .fab-sidebar-reopen, footer {
+      .navbar, .sidebar, .hero-header, .stat-card, .btn, .solution-toggle-btn, .edge-sidebar-tab, footer {
         display: none !important;
       }
       body {
@@ -1287,7 +1278,7 @@
       
       <!-- Brand & Sidebar Toggle -->
       <div class="nav-left">
-        <button class="btn-sidebar-toggle" id="btnSidebarToggle" onclick="toggleSidebar()" title="收合/展開側邊篩選欄 (快捷鍵: [ )">
+        <button class="btn-sidebar-toggle" id="btnSidebarToggle" onclick="toggleSidebar()" title="收合/展開側邊篩選欄">
           <i class="fa-solid fa-bars-staggered" id="sidebarToggleIcon"></i>
         </button>
         
@@ -1305,13 +1296,13 @@
       <!-- Center & Right Control Bar -->
       <div class="nav-controls">
         
-        <!-- Dynamic Font Sizer Controller Widget -->
-        <div class="font-sizer-widget" title="動態字級放大縮小，文字將自動換行絕不產生水平捲軸">
+        <!-- Dynamic Font Sizer Controller Widget (Supports 60% ~ 300%+) -->
+        <div class="font-sizer-widget" title="動態字級放大縮小，文字自動換行絕不產生水平捲軸">
           <span class="font-sizer-label"><i class="fa-solid fa-text-height"></i> 字級</span>
-          <button class="btn-sizer" onclick="adjustFontSize(-0.1)" title="縮小字級 (快捷鍵: -)">A-</button>
+          <button class="btn-sizer" onclick="adjustFontSize(-0.15)" title="縮小字級 (每次 -15%)"><i class="fa-solid fa-minus"></i></button>
           <span class="font-sizer-value" id="fontSizeValue">100%</span>
-          <button class="btn-sizer" onclick="adjustFontSize(0.1)" title="放大字級 (快捷鍵: +)">A+</button>
-          <button class="btn-sizer" onclick="resetFontSize()" title="重設為預設字級 100% (快捷鍵: 0)"><i class="fa-solid fa-rotate-left" style="font-size: 0.75rem;"></i></button>
+          <button class="btn-sizer" onclick="adjustFontSize(0.15)" title="放大字級 (每次 +15%)"><i class="fa-solid fa-plus"></i></button>
+          <button class="btn-sizer" onclick="resetFontSize()" title="重設為 100%"><i class="fa-solid fa-rotate-left" style="font-size: 0.75rem;"></i></button>
         </div>
 
         <!-- Theme Picker (Light / Dark / Sepia Warm) -->
@@ -1344,13 +1335,14 @@
           <p>國中七～九年級：相似形、畢氏定理、不等式、聯立方程式與坐標規律</p>
         </div>
 
-        <!-- Quick Font Presets for Fast Switching -->
+        <!-- Quick Font Presets for Fast Switching (From 100% up to 250%) -->
         <div class="font-preset-badges">
-          <span class="font-preset-label"><i class="fa-solid fa-glasses"></i> 閱讀模式:</span>
+          <span class="font-preset-label"><i class="fa-solid fa-glasses"></i> 閱讀字級模式:</span>
           <button class="font-preset-btn active" id="preset100" onclick="setFontScale(1.0)">標準 100%</button>
-          <button class="font-preset-btn" id="preset120" onclick="setFontScale(1.2)">舒適 120%</button>
-          <button class="font-preset-btn" id="preset140" onclick="setFontScale(1.4)">大字 140%</button>
-          <button class="font-preset-btn" id="preset160" onclick="setFontScale(1.6)">特大 160%</button>
+          <button class="font-preset-btn" id="preset130" onclick="setFontScale(1.3)">舒適 130%</button>
+          <button class="font-preset-btn" id="preset160" onclick="setFontScale(1.6)">大字 160%</button>
+          <button class="font-preset-btn" id="preset200" onclick="setFontScale(2.0)">特大 200%</button>
+          <button class="font-preset-btn" id="preset250" onclick="setFontScale(2.5)">超大 250%</button>
         </div>
       </div>
 
@@ -1399,6 +1391,12 @@
     </div>
   </section>
 
+  <!-- Always-Sticky Left Edge Tab Button (隨時固定在最左側垂直中間高度的 > 展開按鈕) -->
+  <button class="edge-sidebar-tab" id="edgeSidebarTab" onclick="toggleSidebar()" title="點擊展開篩選側欄 (此按鈕隨滾動始終固定在左側中間)">
+    <i class="fa-solid fa-chevron-right" style="font-size: 1.15rem;"></i>
+    <span class="edge-tab-text">展開篩選</span>
+  </button>
+
   <!-- Main Layout Container -->
   <main class="main-wrapper" id="mainWrapper">
     
@@ -1407,8 +1405,9 @@
       
       <div class="sidebar-header">
         <h3><i class="fa-solid fa-sliders"></i> 篩選與設定</h3>
-        <button class="btn-collapse-sidebar" onclick="toggleSidebar()" title="收合側邊欄">
+        <button class="btn-collapse-sidebar" onclick="toggleSidebar()" title="內縮側邊欄">
           <i class="fa-solid fa-chevron-left"></i>
+          <span>收合</span>
         </button>
       </div>
 
@@ -1478,20 +1477,10 @@
 
     <!-- Question Cards Section -->
     <section class="question-list-container">
-      
-      <!-- Collapsed notice bar that appears when sidebar is hidden -->
-      <div class="collapsed-notice-bar">
-        <div style="font-size: 0.88rem; font-weight: 600; color: var(--primary);">
-          <i class="fa-solid fa-expand"></i> 側邊欄已內縮（全寬沉浸模式）
-        </div>
-        <button class="btn btn-ghost" style="padding: 0.3rem 0.75rem; font-size: 0.8rem;" onclick="toggleSidebar()">
-          <i class="fa-solid fa-bars-staggered"></i> 展開篩選側邊欄
-        </button>
-      </div>
 
       <div class="list-meta-bar">
         <div>目前顯示 <strong id="filterMatchCount" style="color: var(--primary);">11</strong> 題錯題</div>
-        <div style="font-size: 0.82rem; color: var(--text-muted);">💡 提示：按 <code>[</code> 可隨時內縮/展開側邊欄，按 <code>+</code> / <code>-</code> 可快速放大縮小字體</div>
+        <div style="font-size: 0.82rem; color: var(--text-muted);">💡 提示：左側欄收合後，點擊左側中間的 <strong>「> 展開篩選」</strong> 即可隨時還原側欄</div>
       </div>
 
       <!-- Cards Target Wrapper -->
@@ -1501,12 +1490,6 @@
     </section>
 
   </main>
-
-  <!-- Floating Quick Button to Re-open Sidebar when collapsed -->
-  <button class="fab-sidebar-reopen" onclick="toggleSidebar()" title="點擊展開篩選側欄">
-    <i class="fa-solid fa-sliders"></i>
-    <span>展開篩選</span>
-  </button>
 
   <!-- Image Lightbox Modal -->
   <div class="modal-overlay" id="imageModal" onclick="closeModal(event)">
@@ -1876,7 +1859,7 @@
 
     // Application State
     let currentMode = 'browse'; // 'browse' | 'quiz'
-    let fontScale = 1.0; // 0.85 to 1.8
+    let fontScale = 1.0; // 0.60 to 3.00 (60% to 300%+)
     let isSidebarCollapsed = false;
     
     let filters = {
@@ -1897,7 +1880,6 @@
       initSidebarState();
       renderQuestions();
       updateStats();
-      setupKeyboardShortcuts();
     });
 
     // Theme Engine
@@ -1915,32 +1897,32 @@
       document.getElementById('themeBtnSepia').classList.toggle('active', theme === 'sepia');
     }
 
-    // Dynamic Font Scaling System
+    // Dynamic Font Scaling System (From 60% up to 300%+)
     function initFontScale() {
       const savedScale = parseFloat(localStorage.getItem('miley_font_scale')) || 1.0;
       setFontScale(savedScale, false);
     }
 
     function setFontScale(scale, save = true) {
-      // Clamp between 0.85 and 1.80
-      fontScale = Math.min(Math.max(scale, 0.85), 1.80);
+      // Allow wide zoom range: 60% to 300%+
+      fontScale = Math.min(Math.max(scale, 0.60), 3.00);
       document.documentElement.style.setProperty('--font-scale', fontScale);
       
       const pct = Math.round(fontScale * 100);
       document.getElementById('fontSizeValue').innerText = `${pct}%`;
 
       // Update preset buttons active status
-      const presets = [1.0, 1.2, 1.4, 1.6];
+      const presets = [1.0, 1.3, 1.6, 2.0, 2.5];
       presets.forEach(p => {
         const btn = document.getElementById(`preset${Math.round(p*100)}`);
-        if (btn) btn.classList.toggle('active', Math.abs(fontScale - p) < 0.05);
+        if (btn) btn.classList.toggle('active', Math.abs(fontScale - p) < 0.08);
       });
 
       if (save) localStorage.setItem('miley_font_scale', fontScale);
     }
 
     function adjustFontSize(delta) {
-      const newScale = Math.round((fontScale + delta) * 10) / 10;
+      const newScale = Math.round((fontScale + delta) * 100) / 100;
       setFontScale(newScale);
     }
 
@@ -1948,7 +1930,7 @@
       setFontScale(1.0);
     }
 
-    // Collapsible Sidebar System
+    // Collapsible Sidebar System & Left Edge Middle Floating Tab
     function initSidebarState() {
       const savedState = localStorage.getItem('miley_sidebar_collapsed') === 'true';
       if (savedState) {
@@ -1973,43 +1955,13 @@
       
       if (collapsed) {
         icon.className = 'fa-solid fa-indent';
-        toggleBtn.title = '展開側邊篩選欄 (快捷鍵: [ )';
+        toggleBtn.title = '展開側邊篩選欄';
       } else {
         icon.className = 'fa-solid fa-bars-staggered';
-        toggleBtn.title = '收合側邊篩選欄 (快捷鍵: [ )';
+        toggleBtn.title = '收合側邊篩選欄';
       }
 
       if (save) localStorage.setItem('miley_sidebar_collapsed', collapsed);
-    }
-
-    // Keyboard Shortcuts
-    function setupKeyboardShortcuts() {
-      document.addEventListener('keydown', (e) => {
-        // Ignore shortcuts if typing in search input
-        if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
-
-        if (e.key === '[' || (e.ctrlKey && e.key.toLowerCase() === 'b')) {
-          e.preventDefault();
-          toggleSidebar();
-        } else if (e.key === '+' || e.key === '=') {
-          e.preventDefault();
-          adjustFontSize(0.1);
-        } else if (e.key === '-' || e.key === '_') {
-          e.preventDefault();
-          adjustFontSize(-0.1);
-        } else if (e.key === '0') {
-          e.preventDefault();
-          resetFontSize();
-        } else if (e.key.toLowerCase() === 't') {
-          // Cycle themes
-          const currentTheme = document.documentElement.getAttribute('data-theme') || 'light';
-          const next = currentTheme === 'light' ? 'sepia' : (currentTheme === 'sepia' ? 'dark' : 'light');
-          setTheme(next);
-        } else if (e.key.toLowerCase() === 'm') {
-          // Toggle Quiz/Browse Mode
-          setAppMode(currentMode === 'browse' ? 'quiz' : 'browse');
-        }
-      });
     }
 
     // App Mode Switcher
