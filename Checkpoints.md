@@ -12,7 +12,10 @@
 - **異動摘要**：
   - 新增「錯題 10：坐標平面正方形頂點移動與規律相遇（等速率相遇問題與餘數週期規律）」至 [math.md](file:///p:/bennychen/0AI_共用資料夾/Miley錯題本/math.md)。
   - 新增「錯題 11：平行線截比例線段與相似三角形性質（母子相似與沙漏形相似綜合題）」至 [math.md](file:///p:/bennychen/0AI_共用資料夾/Miley錯題本/math.md)。
-  - 建立全功能互動式數學錯題複習網頁 [math.html](file:///p:/bennychen/0AI_共用資料夾/Miley錯題本/math.html) 與 [index.html](file:///p:/bennychen/0AI_共用資料夾/Miley錯題本/index.html)，支援自我刷題測驗模式、即時篩選、LaTeX 公式渲染與圖片燈箱放大。
+  - 升級 [math.html](file:///p:/bennychen/0AI_共用資料夾/Miley錯題本/math.html) 互動複習系統（UI/UX 專家協同規劃）：
+    - 側邊欄一鍵內縮/展開（全寬沉浸模式 + 懸浮 FAB + `[` 快捷鍵）。
+    - 動態字級縮放系統（A- / A+ / 100%~160% 預設檔位，文字與公式自適應折行，100% 消除水平捲軸）。
+    - 護眼模式（Light / Dark / Sepia 暖色羊皮紙模式）。
   - 儲存並裁剪題目幾何圖 `math_10.png`、`math_11.png` 與原始截圖 `math_10_source.png`、`math_11_source.png`。
 - **廢棄/提純規則**：無
 
