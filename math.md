@@ -729,6 +729,191 @@ $$\overline{BP} = \frac{4}{4 + 4 + 7} \times \overline{BC} = \frac{4}{15} \times
 </label>
 </details>
 
-[🖼️ 查看原始完整截圖（💡 提示：點擊連結開啟圖片後，可將分頁拖曳至右側或按 Ctrl + \ 分割視窗對照）](images/math_9_source.png)
+---
+
+## 📌 錯題 10：坐標平面正方形頂點移動與規律相遇（等速率相遇問題與餘數週期規律）
+
+### 📅 記錄日期：2026-08-22
+
+### 📝 題目敘述
+如圖，坐標平面有一正方形 $ABCD$，$A$、$C$ 的坐標分別為 $(1, 1)$、$(-1, -1)$。已知甲、乙兩人在 $A$ 點第 1 次相遇後，甲自 $A$ 點以每秒 $a$ 公尺的速率，沿著正方形的邊以逆時針方向等速行走；乙自 $A$ 點以每秒 $b$ 公尺的速率，沿著正方形的邊以順時針方向等速行走。若 $a \neq 7b$，且甲、乙第 2 次相遇在 $D$ 點，則此兩人第 91 次相遇在何處？〔95.基測 II〕
+*   (A) $A$ 點
+*   (B) $B$ 點
+*   (C) $C$ 點
+*   (D) $D$ 點
+
+<details open>
+<summary>🔍 <b>題目圖（點擊可展開/收合整個區塊，點擊下方圖片可原地放大/縮小）</b></summary>
+<input type="checkbox" id="zoom-m10-q" class="zoom-toggle">
+<label for="zoom-m10-q" class="zoom-label">
+  <img src="images/math_10.png" alt="題目圖" style="width: 100%; max-width: 350px; margin-top: 8px; border-radius: 6px; border: 1px solid #ddd;">
+</label>
+</details>
+
+### 🏷️ 錯題分類
+*   **年級**：七年級下學期 / 國中會考總複習
+*   **科目**：數學（翰林版 / 歷屆基測試題）
+*   **單元**：直角坐標平面 / 規律數列與週期問題 / 速率與相遇問題
+*   **核心知識點**：封閉路徑相遇問題（背向合走一圈）、週期規律性（利用同餘/除法餘數判定頂點位置）
+
+### 🔑 答案
+> 💡 **【核心答案】**  
+> **正確答案：(C) $C$ 點**
+
+### 💡 完整解析與解題步驟
+
+#### 1. 理解封閉圖形上相遇的運動特性
+*   坐標平面上，正方形頂點位置分別為：$A(1,1)$（右上）、$B(-1,1)$（左上）、$C(-1,-1)$（左下）、$D(1,-1)$（右下）。
+*   甲以速率 $a$ 沿邊**逆時針**行走（方向：$A \to B \to C \to D \to A$）。
+*   乙以速率 $b$ 沿邊**順時針**行走（方向：$A \to D \to C \to B \to A$）。
+*   兩人在封閉的正方形邊上**背向而行**，每次從相遇到下一次相遇，兩人所走的路程總和恰好等於**正方形的一整圈周長（4 個邊長）**。
+*   每次相遇所需的時間為 $t = \frac{\text{正方形周長}}{a + b}$（為一固定常數）。因此，**每一次相遇點相對於上一次相遇點的位移間距都是固定不變的**。
+
+#### 2. 找出相遇點的循環規律
+*   **第 1 次相遇**：在 **$A$ 點**。
+*   **第 2 次相遇**：在 **$D$ 點**。
+*   觀察從第 1 次相遇點到第 2 次相遇點的位置變化：
+    *   相遇點從 $A$ 點順時針移動到了 $D$ 點，即**順時針移動 1 個頂點**（相差 1 個邊長）。
+*   因為兩人皆為等速行走，後續每一次相遇點都會依照相同的位移規律，**順時針依序移動 1 個頂點**：
+    *   **第 1 次相遇**：$A$ 點
+    *   **第 2 次相遇**：$D$ 點（自 $A$ 順時針移 1 格）
+    *   **第 3 次相遇**：$C$ 點（自 $D$ 順時針移 1 格）
+    *   **第 4 次相遇**：$B$ 點（自 $C$ 順時針移 1 格）
+    *   **第 5 次相遇**：$A$ 點（回到 $A$ 點，開始重複循環）
+*   由此可知，相遇位置以 **4 次為一個完整循環週期**（順序為：$A \to D \to C \to B$）。
+
+#### 3. 計算第 91 次相遇的位置
+
+*   **方法一：循環餘數對照法（最推薦）**
+    *   將相遇次數除以週期 $4$：
+        $$91 \div 4 = 22 \dots \text{餘 } 3$$
+    *   根據餘數對照表：
+        *   餘數為 $1 \implies A$ 點
+        *   餘數為 $2 \implies D$ 點
+        *   **餘數為 $3 \implies C$ 點**
+        *   餘數為 $0$（整除）$\implies B$ 點
+    *   因此，第 91 次相遇位置在 **$C$ 點**。
+
+*   **方法二：位移步數法**
+    *   從第 1 次相遇（在 $A$ 點）到第 91 次相遇，共經過了 $91 - 1 = 90$ 次相遇位移。
+    *   每次位移為順時針前進 1 格，故總共順時針前進 90 格：
+        $$90 \div 4 = 22 \text{（整整繞行 22 輪）} \dots \text{餘 } 2 \text{ 格}$$
+    *   自起點 $A$ 順時針移動 2 格：$A \to D \to C$。
+    *   同樣得出第 91 次相遇在 **$C$ 點**。
+
+> ⚠️ **【🧠 思考盲點與概念釐清】**
+> *   **盲點 1：被條件 $a \neq 7b$ 或坐標數值干擾**  
+>     *   坐標 $A(1, 1)$ 與 $C(-1, -1)$ 僅用於確定四個頂點的方位與相對順序。
+>     *   條件 $a \neq 7b$ 是大考出題委員為求嚴謹、避免爭議所設立的數學防弊條件（排除甲繞行 7 邊長、乙 1 邊長時合走 2 圈的情況）。
+>     *   解題核心在於抓住「**等速背向相遇必為等距位移**」與「**頂點循環週期性**」，無需深入計算速率 $a$ 與 $b$ 的絕對數值。
+> *   **盲點 2：搞混相遇次數與位移次數**  
+>     *   使用「除法餘數法」時，直接以相遇次數 $91$ 除以週期 $4$，餘數 $3$ 即為循環中的第 3 個位置（$C$ 點）。
+>     *   若使用「起點前進步數法」，則必須扣掉第 1 次（起點），算式為 $(91 - 1) = 90$ 步，再從 $A$ 往後數 2 格（$A \to D \to C$），兩者皆能得出正確答案。
+
+---
+
+<details open>
+<summary>🔍 <b>原始完整截圖（點擊可展開/收合整個區塊，點擊下方圖片可原地放大/縮小）</b></summary>
+<input type="checkbox" id="zoom-m10-src" class="zoom-toggle">
+<label for="zoom-m10-src" class="zoom-label">
+  <img src="images/math_10_source.png" alt="原始完整截圖" style="width: 100%; max-width: 450px; margin-top: 8px; border-radius: 6px; border: 1px solid #ddd;">
+</label>
+</details>
+
+[🖼️ 查看原始完整截圖（💡 提示：點擊連結開啟圖片後，可將分頁拖曳至右側或按 Ctrl + \ 分割視窗對照）](images/math_10_source.png)
+
+---
+
+## 📌 錯題 11：平行線截比例線段與相似三角形性質（母子相似與沙漏形相似綜合題）
+
+### 📅 記錄日期：2026-08-22
+
+### 📝 題目敘述
+如圖，$\triangle ABC$ 中，$D$ 為 $\overline{AB}$ 上一點，過 $D$ 作 $\overline{DE} // \overline{BC}$ 交 $\overline{AC}$ 於 $E$。若 $\overline{BE}$ 與 $\overline{CD}$ 交於 $O$，且 $\overline{AD} : \overline{BD} = 2 : 3$，$\overline{OD} = 1$，則 $\overline{OC} = ?$
+*   (A) 1.5
+*   (B) 2
+*   (C) 2.5
+*   (D) 3
+
+<details open>
+<summary>🔍 <b>題目幾何圖（點擊可展開/收合整個區塊，點擊下方圖片可原地放大/縮小）</b></summary>
+<input type="checkbox" id="zoom-m11-q" class="zoom-toggle">
+<label for="zoom-m11-q" class="zoom-label">
+  <img src="images/math_11.png" alt="題目幾何圖" style="width: 100%; max-width: 320px; margin-top: 8px; border-radius: 6px; border: 1px solid #ddd;">
+</label>
+</details>
+
+### 🏷️ 錯題分類
+*   **年級**：九年級上學期（國三上）/ 國中會考總複習
+*   **科目**：數學（翰林/康軒/南一版）
+*   **單元**：第一章 相似形（比例線段、平行線截比例線段、相似三角形判定與性質）
+*   **核心知識點**：
+    1. 平行線截出母子相似三角形與底邊比例：$\overline{DE} // \overline{BC} \implies \triangle ADE \sim \triangle ABC \implies \overline{DE} : \overline{BC} = \overline{AD} : \overline{AB}$
+    2. 平行線與對角線構成的「沙漏形（蝴蝶形）」相似三角形：$\triangle DOE \sim \triangle COB$（AA 相似）
+    3. 對應邊成比例求未知線段長
+
+### 🔑 答案
+> 💡 **【核心答案】**  
+> **正確答案：(C) 2.5**
+
+### 💡 完整解析與解題步驟
+
+#### 步驟一：由「母子相似」求出底邊平行線段的比 $\overline{DE} : \overline{BC}$
+1. 在 $\triangle ABC$ 中，已知 $\overline{DE} // \overline{BC}$。
+2. 根據平行線性質：同位角相等（$\angle ADE = \angle ABC$ 且 $\angle AED = \angle ACB$），加上共用頂角 $\angle A$。
+3. 由 **AA 相似性質** 可得：
+   $$\triangle ADE \sim \triangle ABC$$
+4. 相似三角形的對應邊成比例：
+   $$\frac{\overline{DE}}{\overline{BC}} = \frac{\overline{AD}}{\overline{AB}}$$
+5. 已知 $\overline{AD} : \overline{BD} = 2 : 3$，則整條邊長 $\overline{AB} = \overline{AD} + \overline{BD}$ 所佔的比例份數為 $2 + 3 = 5$：
+   $$\frac{\overline{AD}}{\overline{AB}} = \frac{2}{2 + 3} = \frac{2}{5}$$
+6. 因此求得底邊比例：
+   $$\overline{DE} : \overline{BC} = 2 : 5$$
+
+---
+
+#### 步驟二：由交叉線段「沙漏形相似（蝴蝶形）」求 $\overline{OC}$
+1. 觀察由對角線 $\overline{BE}$ 與 $\overline{CD}$ 所交會形成的兩個三角形：$\triangle DOE$ 與 $\triangle COB$。
+2. 因為 $\overline{DE} // \overline{BC}$：
+   *   **內錯角相等**：$\angle ODE = \angle OCB$（截線 $\overline{CD}$）
+   *   **內錯角相等**：$\angle OED = \angle OBC$（截線 $\overline{BE}$）
+   *   **對頂角相等**：$\angle DOE = \angle COB$
+3. 由 **AA 相似性質** 可得：
+   $$\triangle DOE \sim \triangle COB$$
+4. 相似三角形的對應邊成比例：
+   $$\frac{\overline{DO}}{\overline{CO}} = \frac{\overline{DE}}{\overline{BC}}$$
+5. 將已知條件 $\overline{OD} = 1$ 與步驟一求出的比例 $\overline{DE} : \overline{BC} = 2 : 5$ 代入：
+   $$\frac{1}{\overline{OC}} = \frac{2}{5}$$
+6. 交叉相乘計算：
+   $$2 \times \overline{OC} = 1 \times 5 \implies \overline{OC} = \frac{5}{2} = 2.5$$
+
+---
+
+> ⚠️ **【🧠 思考盲點與概念釐清（為什麼會選錯？）】**
+>
+> *   **❌ 致命盲點 1：誤把「側邊截線比」當作「底邊比」**  
+>     *   許多同學會直接記「平行線分線段成比例：$\overline{AD} : \overline{DB} = 2 : 3$」，就下意識誤以為底邊 $\overline{DE} : \overline{BC}$ 也是 $2 : 3$。  
+>     *   **觀念糾正**：
+>         *   側邊片段比：$\overline{AD} : \overline{DB} = \overline{AE} : \overline{EC} = 2 : 3$（這是平行線截線段性質）。
+>         *   底邊長度比：必須使用**小三角形比大三角形** $\triangle ADE \sim \triangle ABC$，即 $\overline{DE} : \overline{BC} = \overline{AD} : \overline{\mathbf{AB}} = 2 : (2+3) = \mathbf{2 : 5}$！
+> *   **❌ 盲點 2：直接拿側邊比硬套到 $\overline{OD} : \overline{OC}$**  
+>     *   若誤以為 $\overline{OD} : \overline{OC} = 2 : 3$，會算出 $\overline{OC} = 1.5$（選項 A）；若公式混淆則容易猜 (B) 2。
+>     *   只要謹記「**解幾何相似題，兩步拆解法**」：
+>         1. **上小下大（母子型）**：$\triangle ADE \sim \triangle ABC \to$ 算底邊比 $\overline{DE} : \overline{BC}$。
+>         2. **上小下大（沙漏型）**：$\triangle DOE \sim \triangle COB \to$ 算交叉線段比 $\overline{OD} : \overline{OC}$。
+
+---
+
+<details open>
+<summary>🔍 <b>原始完整截圖（點擊可展開/收合整個區塊，點擊下方圖片可原地放大/縮小）</b></summary>
+<input type="checkbox" id="zoom-m11-src" class="zoom-toggle">
+<label for="zoom-m11-src" class="zoom-label">
+  <img src="images/math_11_source.png" alt="原始完整截圖" style="width: 100%; max-width: 450px; margin-top: 8px; border-radius: 6px; border: 1px solid #ddd;">
+</label>
+</details>
+
+[🖼️ 查看原始完整截圖（💡 提示：點擊連結開啟圖片後，可將分頁拖曳至右側或按 Ctrl + \ 分割視窗對照）](images/math_11_source.png)
+
+
 
 
