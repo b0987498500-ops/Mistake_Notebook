@@ -4,6 +4,20 @@
 
 ---
 
+## 📌 [v1.03] - 2026-08-22 增量快照 (Incremental Checkpoint)
+
+- **版本號**：`v1.03`
+- **記錄日期**：2026-08-22
+- **狀態**：[一般快照]
+- **異動摘要**：
+  - **選項排版自適應優化**：重構 [math.html](file:///p:/bennychen/0AI_共用資料夾/Miley錯題本/math.html) 答案選項區，改採自然文字長度緊湊排版，短答案不硬拉撐 100% 畫面寬度，長答案流暢自動折行。
+  - **全載具手機響應式 (RWD) 升級**：支援手機與平板垂直單欄排版、滑出式抽屜篩選欄（Off-canvas Drawer）與半透明背景遮罩。
+  - **GitHub Pages 自動發布工作流程**：建立 `.github/workflows/deploy.yml`，實現每次 push 自動部署至 GitHub Pages 靜態網站。
+  - **規則提純與閉環規範**：於 `.agents/AGENTS.md` 新增「網頁版同步與自動 Checkpoint 發布規則」。
+- **廢棄/提純規則**：無
+
+---
+
 ## 📌 [v1.02] - 2026-08-22 增量快照 (Incremental Checkpoint)
 
 - **版本號**：`v1.02`

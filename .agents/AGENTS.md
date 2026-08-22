@@ -65,4 +65,10 @@
    `[🖼️ 查看原始完整截圖（💡 提示：點擊連結開啟圖片後，可將分頁拖曳至右側或按 Ctrl + \ 分割視窗對照）](images/科目_題號_source.png)`
    引導使用者藉由 VS Code 的分頁拖曳或分割視窗功能（快速鍵 `Ctrl + \`）進行左右雙視窗對照。
 
-
+## 🌐 網頁版同步與自動 Checkpoint 發布規則 (Auto Web Sync & GitHub Pages Deployment)
+當使用者「新增錯題」、「修改錯題」或「更新題目解析」時，必須執行以下標準閉環作業：
+1. **雙軌同步更新**：同步更新 Markdown 檔案（如 `math.md`）與對應的互動式網頁檔案（如 `math.html`）。
+2. **呼叫 Checkpoint Master**：
+   - 更新 `Checkpoints.md` 記錄最新快照版本（如 `v1.03`）。
+   - 執行 Git Commit 與建立對應版本的 Git Tag（`git tag vX.XX`）。
+   - 推送至 GitHub 遠端儲存庫（`git push origin main --tags`），以自動觸發 GitHub Actions 部署並即時發布至 GitHub Pages 網站。
