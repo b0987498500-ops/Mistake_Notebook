@@ -574,8 +574,11 @@
 
     /* Collapsed Sidebar State -> Expands Question Area to 100% Full Width! */
     .main-wrapper.sidebar-collapsed {
-      grid-template-columns: 0px 1fr;
-      gap: 0;
+      grid-template-columns: 1fr !important;
+      gap: 0 !important;
+    }
+    .main-wrapper.sidebar-collapsed .sidebar {
+      display: none !important;
     }
 
     /* Sidebar Backdrop Overlay on Mobile */
