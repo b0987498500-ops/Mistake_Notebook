@@ -1,0 +1,1786 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Miley 數學錯題複習本 | 互動智能題庫</title>
+  
+  <!-- Google Fonts & Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Noto+Sans+TC:wght@400;500;700;900&family=Fira+Code:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <!-- KaTeX for High Performance Math Rendering -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js"></script>
+
+  <style>
+    :root {
+      --primary: #4f46e5;
+      --primary-hover: #4338ca;
+      --primary-light: #eef2ff;
+      --accent: #06b6d4;
+      --accent-gradient: linear-gradient(135deg, #4f46e5 0%, #06b6d4 100%);
+      
+      --bg-base: #f8fafc;
+      --bg-surface: #ffffff;
+      --bg-card: #ffffff;
+      --bg-card-subtle: #f1f5f9;
+      --border-color: #e2e8f0;
+      
+      --text-main: #0f172a;
+      --text-muted: #64748b;
+      --text-light: #94a3b8;
+      
+      --success: #10b981;
+      --success-bg: #ecfdf5;
+      --success-border: #a7f3d0;
+      --danger: #ef4444;
+      --danger-bg: #fef2f2;
+      --danger-border: #fecaca;
+      --warning: #f59e0b;
+      --warning-bg: #fffbeb;
+      --warning-border: #fde68a;
+      
+      --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+      --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.07), 0 2px 4px -2px rgb(0 0 0 / 0.05);
+      --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.08), 0 4px 6px -4px rgb(0 0 0 / 0.04);
+      --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.05);
+      
+      --radius-sm: 8px;
+      --radius-md: 14px;
+      --radius-lg: 20px;
+      --radius-full: 9999px;
+      
+      --transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    [data-theme="dark"] {
+      --bg-base: #0b0f19;
+      --bg-surface: #111827;
+      --bg-card: #1e293b;
+      --bg-card-subtle: #0f172a;
+      --border-color: #334155;
+      
+      --text-main: #f1f5f9;
+      --text-muted: #94a3b8;
+      --text-light: #64748b;
+      
+      --primary-light: #1e1b4b;
+      --success-bg: #064e3b;
+      --success-border: #047857;
+      --danger-bg: #7f1d1d;
+      --danger-border: #991b1b;
+      --warning-bg: #78350f;
+      --warning-border: #92400e;
+      
+      --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.3);
+      --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.4);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Outfit', 'Noto Sans TC', -apple-system, BlinkMacSystemFont, sans-serif;
+      background-color: var(--bg-base);
+      color: var(--text-main);
+      line-height: 1.65;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    /* Scrollbar */
+    ::-webkit-scrollbar {
+      width: 8px;
+      height: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: var(--bg-base);
+    }
+    ::-webkit-scrollbar-thumb {
+      background: var(--text-light);
+      border-radius: var(--radius-full);
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: var(--text-muted);
+    }
+
+    /* Navbar */
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      background-color: rgba(255, 255, 255, 0.85);
+      border-bottom: 1px solid var(--border-color);
+      transition: var(--transition);
+    }
+    [data-theme="dark"] .navbar {
+      background-color: rgba(17, 24, 39, 0.85);
+    }
+
+    .navbar-container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0.85rem 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      text-decoration: none;
+      color: var(--text-main);
+    }
+
+    .brand-logo {
+      width: 42px;
+      height: 42px;
+      border-radius: var(--radius-md);
+      background: var(--accent-gradient);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 1.35rem;
+      box-shadow: 0 4px 12px rgba(79, 70, 229, 0.35);
+      transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+    .brand:hover .brand-logo {
+      transform: rotate(10deg) scale(1.05);
+    }
+
+    .brand-title {
+      font-weight: 800;
+      font-size: 1.25rem;
+      letter-spacing: -0.02em;
+      background: var(--accent-gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .brand-subtitle {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      font-weight: 500;
+      display: block;
+      letter-spacing: 0.05em;
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.55rem 1rem;
+      font-size: 0.9rem;
+      font-weight: 600;
+      border-radius: var(--radius-md);
+      cursor: pointer;
+      transition: var(--transition);
+      border: 1px solid transparent;
+      outline: none;
+    }
+
+    .btn-primary {
+      background: var(--accent-gradient);
+      color: white;
+      box-shadow: 0 2px 8px rgba(79, 70, 229, 0.25);
+    }
+    .btn-primary:hover {
+      box-shadow: 0 4px 14px rgba(79, 70, 229, 0.4);
+      transform: translateY(-1px);
+    }
+
+    .btn-ghost {
+      background: transparent;
+      color: var(--text-main);
+      border: 1px solid var(--border-color);
+    }
+    .btn-ghost:hover {
+      background: var(--bg-card-subtle);
+      border-color: var(--text-light);
+    }
+
+    .btn-mode-toggle {
+      width: 40px;
+      height: 40px;
+      padding: 0;
+      justify-content: center;
+      border-radius: var(--radius-full);
+    }
+
+    /* Hero / Statistics Section */
+    .hero {
+      background: linear-gradient(180deg, rgba(79, 70, 229, 0.06) 0%, rgba(248, 250, 252, 0) 100%);
+      padding: 2.5rem 1.5rem 1.5rem;
+      border-bottom: 1px solid var(--border-color);
+    }
+    [data-theme="dark"] .hero {
+      background: linear-gradient(180deg, rgba(79, 70, 229, 0.12) 0%, rgba(11, 15, 25, 0) 100%);
+    }
+
+    .hero-container {
+      max-width: 1280px;
+      margin: 0 auto;
+    }
+
+    .hero-header {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: flex-end;
+      gap: 1.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .hero-headline h1 {
+      font-size: 2rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      margin-bottom: 0.5rem;
+    }
+
+    .hero-headline p {
+      color: var(--text-muted);
+      font-size: 1rem;
+    }
+
+    /* Stats Grid */
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+    }
+
+    .stat-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      padding: 1.15rem 1.25rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      box-shadow: var(--shadow-sm);
+      transition: var(--transition);
+    }
+    .stat-card:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-md);
+      border-color: var(--primary);
+    }
+
+    .stat-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: var(--radius-md);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.35rem;
+    }
+    .stat-icon.total { background: #e0e7ff; color: #4338ca; }
+    .stat-icon.mastered { background: #dcfce7; color: #15803d; }
+    .stat-icon.review { background: #fef3c7; color: #b45309; }
+    .stat-icon.rate { background: #e0f2fe; color: #0369a1; }
+    [data-theme="dark"] .stat-icon.total { background: #312e81; color: #c7d2fe; }
+    [data-theme="dark"] .stat-icon.mastered { background: #064e3b; color: #86efac; }
+    [data-theme="dark"] .stat-icon.review { background: #78350f; color: #fde68a; }
+    [data-theme="dark"] .stat-icon.rate { background: #082f49; color: #7dd3fc; }
+
+    .stat-info .stat-value {
+      font-size: 1.6rem;
+      font-weight: 800;
+      line-height: 1.1;
+    }
+    .stat-info .stat-label {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      font-weight: 500;
+    }
+
+    /* Main Content Layout */
+    .main-container {
+      max-width: 1280px;
+      margin: 1.5rem auto 3rem;
+      padding: 0 1.5rem;
+      display: grid;
+      grid-template-columns: 280px 1fr;
+      gap: 2rem;
+      align-items: start;
+    }
+
+    @media (max-width: 1024px) {
+      .main-container {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* Sidebar / Filters */
+    .sidebar {
+      position: sticky;
+      top: 5rem;
+      background: var(--bg-surface);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      padding: 1.5rem;
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .filter-group-title {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--text-light);
+      font-weight: 700;
+      margin-bottom: 0.6rem;
+    }
+
+    .search-box {
+      position: relative;
+    }
+    .search-box input {
+      width: 100%;
+      padding: 0.65rem 1rem 0.65rem 2.4rem;
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      background: var(--bg-base);
+      color: var(--text-main);
+      font-size: 0.9rem;
+      transition: var(--transition);
+    }
+    .search-box input:focus {
+      outline: none;
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.15);
+    }
+    .search-box i {
+      position: absolute;
+      left: 0.85rem;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--text-light);
+      font-size: 0.9rem;
+    }
+
+    .filter-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+    }
+
+    .chip {
+      padding: 0.4rem 0.8rem;
+      font-size: 0.82rem;
+      font-weight: 600;
+      border-radius: var(--radius-full);
+      border: 1px solid var(--border-color);
+      background: var(--bg-base);
+      color: var(--text-muted);
+      cursor: pointer;
+      transition: var(--transition);
+      user-select: none;
+    }
+    .chip:hover {
+      border-color: var(--primary);
+      color: var(--primary);
+    }
+    .chip.active {
+      background: var(--primary);
+      border-color: var(--primary);
+      color: white;
+      box-shadow: 0 2px 6px rgba(79, 70, 229, 0.3);
+    }
+
+    /* Mode Switch Banner */
+    .mode-switch-card {
+      background: var(--accent-gradient);
+      border-radius: var(--radius-md);
+      padding: 1rem 1.25rem;
+      color: white;
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+    }
+    .mode-switch-card h4 {
+      font-size: 0.95rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .mode-switch-card p {
+      font-size: 0.8rem;
+      opacity: 0.9;
+    }
+    .mode-toggle-group {
+      display: flex;
+      background: rgba(0, 0, 0, 0.2);
+      border-radius: var(--radius-sm);
+      padding: 3px;
+    }
+    .mode-btn {
+      flex: 1;
+      text-align: center;
+      padding: 0.4rem 0.5rem;
+      font-size: 0.8rem;
+      font-weight: 600;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: var(--transition);
+      color: rgba(255, 255, 255, 0.8);
+      border: none;
+      background: transparent;
+    }
+    .mode-btn.active {
+      background: white;
+      color: var(--primary);
+      box-shadow: 0 2px 4px rgba(0,0,0,0.15);
+    }
+
+    /* Question Cards List */
+    .question-list-container {
+      display: flex;
+      flex-direction: column;
+      gap: 1.75rem;
+    }
+
+    .list-meta-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      padding: 0 0.5rem;
+    }
+
+    .question-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+      transition: var(--transition);
+      position: relative;
+    }
+    .question-card:hover {
+      box-shadow: var(--shadow-lg);
+      border-color: rgba(79, 70, 229, 0.4);
+    }
+
+    /* Card Header */
+    .card-header {
+      padding: 1.25rem 1.5rem;
+      background: var(--bg-card-subtle);
+      border-bottom: 1px solid var(--border-color);
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .q-badge-group {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+    }
+
+    .q-number {
+      font-weight: 800;
+      font-size: 1rem;
+      color: var(--primary);
+      background: var(--primary-light);
+      padding: 0.25rem 0.75rem;
+      border-radius: var(--radius-full);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+    }
+
+    .tag {
+      font-size: 0.75rem;
+      font-weight: 600;
+      padding: 0.25rem 0.6rem;
+      border-radius: var(--radius-full);
+      background: var(--bg-surface);
+      border: 1px solid var(--border-color);
+      color: var(--text-muted);
+    }
+    .tag.grade { color: #0284c7; background: #e0f2fe; border-color: #bae6fd; }
+    .tag.brush { color: #d97706; background: #fef3c7; border-color: #fde68a; font-weight: 700; }
+    [data-theme="dark"] .tag.grade { color: #7dd3fc; background: #082f49; border-color: #0369a1; }
+    [data-theme="dark"] .tag.brush { color: #fde68a; background: #78350f; border-color: #b45309; }
+
+    .card-controls {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .btn-icon {
+      width: 34px;
+      height: 34px;
+      border-radius: var(--radius-full);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid var(--border-color);
+      background: var(--bg-surface);
+      color: var(--text-muted);
+      cursor: pointer;
+      transition: var(--transition);
+    }
+    .btn-icon:hover {
+      color: var(--primary);
+      border-color: var(--primary);
+      transform: scale(1.05);
+    }
+    .btn-icon.starred {
+      color: #eab308;
+      border-color: #fde047;
+      background: #fefce8;
+    }
+    [data-theme="dark"] .btn-icon.starred {
+      background: #422006;
+      border-color: #a16207;
+    }
+    .btn-icon.mastered-btn {
+      color: var(--success);
+      border-color: var(--success-border);
+      background: var(--success-bg);
+    }
+
+    /* Card Body */
+    .card-body {
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+
+    .q-title {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--text-main);
+      line-height: 1.4;
+    }
+
+    .q-content {
+      font-size: 1rem;
+      color: var(--text-main);
+      line-height: 1.7;
+    }
+
+    /* Image Preview Container */
+    .q-image-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 1rem;
+      background: var(--bg-card-subtle);
+      border-radius: var(--radius-md);
+      border: 1px dashed var(--border-color);
+    }
+
+    .q-image {
+      max-height: 240px;
+      max-width: 100%;
+      object-fit: contain;
+      border-radius: var(--radius-sm);
+      cursor: zoom-in;
+      transition: transform 0.2s ease;
+      box-shadow: var(--shadow-sm);
+      background: white;
+    }
+    .q-image:hover {
+      transform: scale(1.02);
+    }
+
+    .image-caption {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    /* Options List */
+    .q-options {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 0.75rem;
+    }
+
+    .option-item {
+      padding: 0.75rem 1rem;
+      border: 1.5px solid var(--border-color);
+      border-radius: var(--radius-md);
+      background: var(--bg-surface);
+      cursor: pointer;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      transition: var(--transition);
+      user-select: none;
+    }
+    .option-item:hover {
+      border-color: var(--primary);
+      background: var(--primary-light);
+    }
+
+    .option-item.correct-answer {
+      border-color: var(--success);
+      background: var(--success-bg);
+      color: var(--success);
+      font-weight: 700;
+    }
+
+    .option-item.selected-wrong {
+      border-color: var(--danger);
+      background: var(--danger-bg);
+      color: var(--danger);
+      font-weight: 700;
+      animation: shake 0.4s ease;
+    }
+
+    @keyframes shake {
+      0%, 100% { transform: translateX(0); }
+      20%, 60% { transform: translateX(-6px); }
+      40%, 80% { transform: translateX(6px); }
+    }
+
+    .opt-badge {
+      width: 24px;
+      height: 24px;
+      border-radius: var(--radius-full);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--bg-card-subtle);
+      font-size: 0.85rem;
+      font-weight: 700;
+    }
+
+    /* Answer & Solution Toggle Section */
+    .solution-section {
+      border-top: 1px dashed var(--border-color);
+      padding-top: 1.25rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .solution-toggle-btn {
+      align-self: flex-start;
+      background: var(--bg-card-subtle);
+      color: var(--primary);
+      border: 1px solid var(--border-color);
+      padding: 0.5rem 1.1rem;
+      border-radius: var(--radius-full);
+      font-size: 0.85rem;
+      font-weight: 600;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: var(--transition);
+    }
+    .solution-toggle-btn:hover {
+      background: var(--primary-light);
+      border-color: var(--primary);
+    }
+
+    .solution-content {
+      background: var(--bg-card-subtle);
+      border-radius: var(--radius-md);
+      padding: 1.25rem 1.5rem;
+      border-left: 4px solid var(--primary);
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      animation: fadeIn 0.3s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(6px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .answer-callout {
+      background: var(--success-bg);
+      border: 1px solid var(--success-border);
+      color: var(--success);
+      padding: 0.75rem 1rem;
+      border-radius: var(--radius-sm);
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .steps-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    .step-item {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-sm);
+      padding: 0.85rem 1.15rem;
+    }
+    .step-item h5 {
+      color: var(--primary);
+      font-size: 0.95rem;
+      margin-bottom: 0.4rem;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    /* Blind Spot Box */
+    .blindspot-card {
+      background: var(--warning-bg);
+      border: 1px solid var(--warning-border);
+      border-radius: var(--radius-md);
+      padding: 1rem 1.25rem;
+      display: flex;
+      gap: 0.85rem;
+    }
+    .blindspot-icon {
+      color: var(--warning);
+      font-size: 1.3rem;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+    .blindspot-body h5 {
+      color: #92400e;
+      font-size: 0.95rem;
+      margin-bottom: 0.35rem;
+    }
+    [data-theme="dark"] .blindspot-body h5 {
+      color: #fde68a;
+    }
+    .blindspot-body p, .blindspot-body li {
+      font-size: 0.88rem;
+      color: var(--text-main);
+      line-height: 1.55;
+    }
+    .blindspot-body ul {
+      padding-left: 1.2rem;
+      margin-top: 0.3rem;
+    }
+
+    /* Image Modal (Lightbox) */
+    .modal-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.85);
+      backdrop-filter: blur(8px);
+      z-index: 999;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+    }
+    .modal-overlay.active {
+      display: flex;
+    }
+    .modal-content {
+      max-width: 90vw;
+      max-height: 90vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+      position: relative;
+    }
+    .modal-img {
+      max-width: 100%;
+      max-height: 80vh;
+      object-fit: contain;
+      border-radius: var(--radius-md);
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+      background: white;
+    }
+    .modal-close {
+      position: absolute;
+      top: -2.5rem;
+      right: 0;
+      color: white;
+      font-size: 1.8rem;
+      cursor: pointer;
+      background: transparent;
+      border: none;
+      outline: none;
+      transition: transform 0.2s;
+    }
+    .modal-close:hover {
+      transform: scale(1.2);
+    }
+    .modal-actions {
+      display: flex;
+      gap: 1rem;
+    }
+
+    /* Empty State */
+    .empty-state {
+      text-align: center;
+      padding: 4rem 2rem;
+      background: var(--bg-surface);
+      border: 1px dashed var(--border-color);
+      border-radius: var(--radius-lg);
+    }
+    .empty-state i {
+      font-size: 3rem;
+      color: var(--text-light);
+      margin-bottom: 1rem;
+    }
+
+    /* Footer */
+    footer {
+      margin-top: auto;
+      background: var(--bg-surface);
+      border-top: 1px solid var(--border-color);
+      padding: 2rem 1.5rem;
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 0.85rem;
+    }
+
+    /* Print Styles */
+    @media print {
+      .navbar, .sidebar, .hero-header, .stat-card, .btn, .solution-toggle-btn, footer {
+        display: none !important;
+      }
+      body {
+        background: white !important;
+        color: black !important;
+      }
+      .main-container {
+        grid-template-columns: 1fr !important;
+        max-width: 100% !important;
+        margin: 0 !important;
+        padding: 0 !important;
+      }
+      .question-card {
+        border: 1px solid #ccc !important;
+        box-shadow: none !important;
+        page-break-inside: avoid;
+        margin-bottom: 1.5rem !important;
+      }
+      .solution-content {
+        display: block !important;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Navigation Bar -->
+  <header class="navbar">
+    <div class="navbar-container">
+      <a href="#" class="brand">
+        <div class="brand-logo">
+          <i class="fa-solid fa-graduation-cap"></i>
+        </div>
+        <div>
+          <div class="brand-title">Miley 錯題本</div>
+          <span class="brand-subtitle">數學科國中會考複習系統</span>
+        </div>
+      </a>
+
+      <div class="nav-actions">
+        <button class="btn btn-ghost" onclick="toggleAllSolutions()" title="展開或收合所有題目解析">
+          <i class="fa-solid fa-eye"></i>
+          <span class="btn-text">全部解析</span>
+        </button>
+        <button class="btn btn-ghost" onclick="window.print()" title="列印或匯出為 PDF 考卷">
+          <i class="fa-solid fa-print"></i>
+          <span class="btn-text">列印本頁</span>
+        </button>
+        <button class="btn btn-ghost btn-mode-toggle" id="themeToggleBtn" onclick="toggleTheme()" title="切換深色/淺色模式">
+          <i class="fa-solid fa-moon"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Statistics Dashboard -->
+  <section class="hero">
+    <div class="hero-container">
+      <div class="hero-header">
+        <div class="hero-headline">
+          <h1>📐 數學科錯題複習庫</h1>
+          <p>涵蓋國中七～九年級：相似形、畢氏定理、不等式、聯立方程式與坐標規律</p>
+        </div>
+      </div>
+
+      <!-- Stats Grid -->
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-icon total">
+            <i class="fa-solid fa-book-open"></i>
+          </div>
+          <div class="stat-info">
+            <div class="stat-value" id="statTotalCount">11</div>
+            <div class="stat-label">錯題總數 (題)</div>
+          </div>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-icon mastered">
+            <i class="fa-solid fa-circle-check"></i>
+          </div>
+          <div class="stat-info">
+            <div class="stat-value" id="statMasteredCount">0</div>
+            <div class="stat-label">已完全掌握 (題)</div>
+          </div>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-icon review">
+            <i class="fa-solid fa-star"></i>
+          </div>
+          <div class="stat-info">
+            <div class="stat-value" id="statStarredCount">0</div>
+            <div class="stat-label">星號重點複習</div>
+          </div>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-icon rate">
+            <i class="fa-solid fa-chart-line"></i>
+          </div>
+          <div class="stat-info">
+            <div class="stat-value" id="statProgressRate">0%</div>
+            <div class="stat-label">複習精熟度</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Main Layout -->
+  <main class="main-container">
+    
+    <!-- Filter Sidebar -->
+    <aside class="sidebar">
+      
+      <!-- Mode Switch -->
+      <div class="mode-switch-card">
+        <h4><i class="fa-solid fa-wand-magic-sparkles"></i> 複習模式切換</h4>
+        <p>自我測驗模式可先遮蔽答案，點擊選項直接作答！</p>
+        <div class="mode-toggle-group">
+          <button class="mode-btn active" id="btnModeBrowse" onclick="setAppMode('browse')">📖 總覽解析</button>
+          <button class="mode-btn" id="btnModeQuiz" onclick="setAppMode('quiz')">✍️ 刷題測驗</button>
+        </div>
+      </div>
+
+      <!-- Search Input -->
+      <div class="search-box">
+        <i class="fa-solid fa-magnifying-glass"></i>
+        <input type="text" id="searchInput" placeholder="搜尋題目、知識點、公式..." oninput="handleSearch()">
+      </div>
+
+      <!-- Grade Filter -->
+      <div>
+        <div class="filter-group-title">年級分類</div>
+        <div class="filter-chips" id="gradeChips">
+          <div class="chip active" onclick="setFilter('grade', 'all', this)">全部年級</div>
+          <div class="chip" onclick="setFilter('grade', '七年級', this)">七年級</div>
+          <div class="chip" onclick="setFilter('grade', '八年級', this)">八年級</div>
+          <div class="chip" onclick="setFilter('grade', '九年級', this)">九年級</div>
+        </div>
+      </div>
+
+      <!-- Topic Filter -->
+      <div>
+        <div class="filter-group-title">單元核心知識點</div>
+        <div class="filter-chips" id="topicChips">
+          <div class="chip active" onclick="setFilter('topic', 'all', this)">全部單元</div>
+          <div class="chip" onclick="setFilter('topic', '相似形', this)">相似形 (母子/蝴蝶)</div>
+          <div class="chip" onclick="setFilter('topic', '畢氏定理', this)">畢氏定理</div>
+          <div class="chip" onclick="setFilter('topic', '三心', this)">三心（內心性質）</div>
+          <div class="chip" onclick="setFilter('topic', '不等式', this)">一元一次不等式</div>
+          <div class="chip" onclick="setFilter('topic', '坐標', this)">坐標平面與規律</div>
+          <div class="chip" onclick="setFilter('topic', '方程組', this)">聯立方程式</div>
+        </div>
+      </div>
+
+      <!-- Status Filter -->
+      <div>
+        <div class="filter-group-title">學習掌握狀態</div>
+        <div class="filter-chips">
+          <div class="chip active" onclick="setFilter('status', 'all', this)">全部題目</div>
+          <div class="chip" onclick="setFilter('status', 'starred', this)">⭐ 星號重點</div>
+          <div class="chip" onclick="setFilter('status', 'unmastered', this)">⏳ 待加強複習</div>
+          <div class="chip" onclick="setFilter('status', 'mastered', this)">✅ 已精熟</div>
+        </div>
+      </div>
+
+      <button class="btn btn-ghost" style="width: 100%; justify-content: center;" onclick="resetFilters()">
+        <i class="fa-solid fa-rotate-left"></i> 重設所有篩選
+      </button>
+
+    </aside>
+
+    <!-- Question Cards Container -->
+    <section class="question-list-container">
+      <div class="list-meta-bar">
+        <div>目前顯示 <strong id="filterMatchCount">11</strong> 題錯題</div>
+        <div id="activeFilterBadge" style="font-size: 0.8rem;"></div>
+      </div>
+
+      <div id="questionCardsWrapper" class="question-list-container">
+        <!-- Rendered via JavaScript -->
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Image Lightbox Modal -->
+  <div class="modal-overlay" id="imageModal" onclick="closeModal(event)">
+    <div class="modal-content" onclick="event.stopPropagation()">
+      <button class="modal-close" onclick="closeModal()"><i class="fa-solid fa-xmark"></i></button>
+      <img src="" alt="放大圖" class="modal-img" id="modalImg">
+      <div class="modal-actions">
+        <button class="btn btn-primary" id="modalToggleSourceBtn" onclick="toggleModalSource()">
+          <i class="fa-solid fa-image"></i> 切換原始完整截圖
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <p>🎓 Miley 專屬錯題本系統 • 國中數學會考總複習 • 自主化刷題與精熟度追蹤</p>
+  </footer>
+
+  <!-- Question Data & Application Logic -->
+  <script>
+    // 錯題資料庫 (收錄 math.md 完整 11 道錯題)
+    const questionsData = [
+      {
+        id: 1,
+        title: "小白兔與小雞的腳數問題（雞兔同籠二元一次方程組）",
+        date: "2026-07-26",
+        grade: "七年級",
+        unit: "第一章 二元一次聯立方程式",
+        topics: ["方程組", "二元一次聯立方程式", "雞兔同籠問題", "實際合理性檢驗"],
+        question: "甲對乙說：「我養的寵物小白兔和小雞共有 18 隻，加起來共有 58 隻腳。」<br>乙對甲說：「不對吧！你是不是弄錯了？」<br>請問究竟是誰弄錯了呢？",
+        options: [
+          { key: "A", text: "兩人都對" },
+          { key: "B", text: "甲錯" },
+          { key: "C", text: "乙錯" },
+          { key: "D", text: "兩人都錯" }
+        ],
+        answerKey: "C",
+        answerText: "正確答案：(C) 乙錯",
+        imageQ: null,
+        imageSource: "images/math_1_source.png",
+        steps: [
+          {
+            title: "1. 設定未知數與列式",
+            content: "設小白兔有 $x$ 隻（4 隻腳），小雞有 $y$ 隻（2 隻腳）。<br>總隻數：$x + y = 18 \\quad \\cdots(1)$<br>總腳數：$4x + 2y = 58 \\quad \\cdots(2)$"
+          },
+          {
+            title: "2. 解二元一次聯立方程組",
+            content: "將 (1) 式乘以 2 得 $2x + 2y = 36 \\quad \\cdots(3)$<br>(2) 式減 (3) 式：$2x = 22 \\implies x = 11$（隻兔）<br>代回 (1) 式：$11 + y = 18 \\implies y = 7$（隻雞）"
+          },
+          {
+            title: "3. 合理性檢驗",
+            content: "求出的 $x = 11$ 與 $y = 7$ 皆為正整數且完全符合題意條件，代表甲所說的數量完全合理。因此是乙無端懷疑弄錯了，故選 (C)。"
+          }
+        ],
+        blindspot: "許多人會以為「題目問誰弄錯」一定是甲算錯，解出聯立方程組後務必檢查正整數解的合理性，只要有合理非負整數解，敘述就屬真！"
+      },
+      {
+        id: 2,
+        title: "選舉確定當選票數門檻（一元一次不等式應用）",
+        date: "2026-07-26",
+        grade: "七年級",
+        unit: "第五章 一元一次不等式",
+        topics: ["不等式", "一元一次不等式", "確定當選門檻", "安全票數計算"],
+        question: "花田村要選村民代表，共有 5 位候選人，從中要選出 2 位，若開出有效票共 12300 張，則候選人至少應得多票才可確定當選？",
+        options: [
+          { key: "A", text: "4101" },
+          { key: "B", text: "4100" },
+          { key: "C", text: "4102" },
+          { key: "D", text: "4103" }
+        ],
+        answerKey: "A",
+        answerText: "正確答案：(A) 4101 票",
+        imageQ: null,
+        imageSource: "images/math_2_source.png",
+        steps: [
+          {
+            title: "1. 理解「確定當選（保證當選）」的最嚴苛情況",
+            content: "選出 2 個席位，最極端的競爭情況是『有 3 個人（應選名額 + 1）平分所有選票』。<br>只要你的得票數嚴格大於這 3 人平分的平均票數，剩下的人不管怎麼集中選票都無法超越你。"
+          },
+          {
+            title: "2. 套用安全當選門檻公式",
+            content: "安全得票數 $> \\frac{\\text{總有效票數}}{\\text{應選席次 } N + 1} = \\frac{12300}{2 + 1} = 4100$<br>因為必須『嚴格大於』4100 票，故至少需得 **4101 票** 才能 100% 確定當選。"
+          }
+        ],
+        blindspot: "容易搞混『可能當選』與『確定當選』。如果其他人得 0 票，拿 1 票也可能當選；但要保證當選，必須用『總票數 ÷ (席次 + 1)』後取第一個大於該數的整數。"
+      },
+      {
+        id: 3,
+        title: "三角形中點連線段性質與梯形對角線中點（中線與中點線段計算）",
+        date: "2026-07-26",
+        grade: "九年級",
+        unit: "第一章 相似形",
+        topics: ["相似形", "三角形中點連線", "梯形對角線中點公式"],
+        question: "三角形 $ABC$ 中，線段 $\\overline{BE}$、線段 $\\overline{CD}$ 為兩中線，若 $M$、$N$ 各為線段 $\\overline{BE}$ 及線段 $\\overline{CD}$ 中點，且線段 $\\overline{BC} = 12$ 公分，則線段 $\\overline{MN} =$ 多少公分？",
+        options: [
+          { key: "A", text: "2" },
+          { key: "B", text: "2.5" },
+          { key: "C", text: "3" },
+          { key: "D", text: "4" }
+        ],
+        answerKey: "C",
+        answerText: "正確答案：(C) 3 公分",
+        imageQ: "images/math_3.png",
+        imageSource: "images/math_3_source.png",
+        steps: [
+          {
+            title: "1. 判定梯形與求上底長度",
+            content: "連接 $D$、$E$。因為 $D$、$E$ 分別為 $\\overline{AB}$ 與 $\\overline{AC}$ 中點，根據三角形中點連線性質：<br>$\\overline{DE} \\parallel \\overline{BC}$ 且 $\\overline{DE} = \\frac{1}{2}\\overline{BC} = 6$ 公分。<br>四邊形 $DECB$ 為一個梯形（上底 6、下底 12）。"
+          },
+          {
+            title: "2. 套用梯形兩對角線中點連線公式（極速秒殺）",
+            content: "在梯形 $DECB$ 中，$\\overline{BE}$ 與 $\\overline{CD}$ 為對角線，$M$、$N$ 為中點：<br>$$\\overline{MN} = \\frac{\\text{下底 } \\overline{BC} - \\text{上底 } \\overline{DE}}{2} = \\frac{12 - 6}{2} = 3 \\text{ 公分}$$"
+          }
+        ],
+        blindspot: "原始解答延伸至 F 點之推導繁瑣且算式寫錯。看到梯形與兩對角線中點，直接套用『(下底 - 上底) ÷ 2』即可秒殺！"
+      },
+      {
+        id: 4,
+        title: "畢氏定理與代數式展開（斜邊與股長的倍數關係）",
+        date: "2026-08-01",
+        grade: "八年級",
+        unit: "第二章 根式運算與畢氏定理",
+        topics: ["畢氏定理", "平方差公式", "倍數判定"],
+        question: "已知直角三角形中，斜邊長為 $a+12$（題目圖誤印為 $a+2$），兩股長為 $a-4$、$b$，其中 $a$、$b$ 均為正整數，則 $b^2$ 為下列哪一個數的倍數？",
+        options: [
+          { key: "A", text: "32" },
+          { key: "B", text: "34" },
+          { key: "C", text: "36" },
+          { key: "D", text: "38" }
+        ],
+        answerKey: "A",
+        answerText: "正確答案：(A) 32",
+        imageQ: "images/math_4_q.png",
+        imageSource: "images/math_4_a.png",
+        steps: [
+          {
+            title: "1. 畢氏定理列式與移項",
+            content: "$$(a-4)^2 + b^2 = (a+12)^2 \\implies b^2 = (a+12)^2 - (a-4)^2$$"
+          },
+          {
+            title: "2. 利用平方差公式展開",
+            content: "$$b^2 = [(a+12) + (a-4)] \\times [(a+12) - (a-4)] = (2a + 8) \\times 16$$<br>提出公因數 2：<br>$$b^2 = 2(a + 4) \\times 16 = 32(a + 4)$$<br>因為 $a$ 為正整數，故 $(a+4)$ 為正整數，因此 $b^2$ 恆為 **32 的倍數**。"
+          }
+        ],
+        blindspot: "遇到考題展開無選項時，需檢查題目是否有印錯（如原題 a+12 印成 a+2）；展開時使用平方差公式比直接硬拆快且不易算錯。"
+      },
+      {
+        id: 5,
+        title: "相似三角形與長方形比例計算（蝴蝶形/沙漏形相似與輔助線延伸）",
+        date: "2026-08-02",
+        grade: "九年級",
+        unit: "第一章 相似形",
+        topics: ["相似形", "長方形幾何", "蝴蝶形相似", "全等三角形", "坐標法"],
+        question: "如圖，$ABCD$ 是長方形，$E$ 點在 $\\overline{BC}$ 上，且 $\\overline{BE} : \\overline{EC} = 3 : 1$，$F$ 為 $\\overline{CD}$ 的中點，$\\overline{EF}$ 與 $\\overline{AC}$ 相交於 $P$ 點，則 $\\overline{AP} : \\overline{PC} = ?$",
+        options: [
+          { key: "A", text: "7 : 2" },
+          { key: "B", text: "5 : 1" },
+          { key: "C", text: "4 : 1" },
+          { key: "D", text: "3 : 1" }
+        ],
+        answerKey: "B",
+        answerText: "正確答案：(B) 5 : 1",
+        imageQ: "images/math_5_q.png",
+        imageSource: "images/math_5_a.png",
+        steps: [
+          {
+            title: "方法一：延長輔助線構造全等與蝴蝶形相似",
+            content: "1. 延長 $\\overline{EF}$ 與 $\\overline{AD}$ 延長線交於 $Q$。<br>2. 證明 $\\triangle QDF \\cong \\triangle ECF$（ASA全等），得 $\\overline{QD} = \\overline{EC} = 1k$。<br>3. 長方形 $\\overline{AD} = \\overline{BC} = 3k + 1k = 4k$，故整體上邊 $\\overline{QA} = 1k + 4k = 5k$。<br>4. 由 $\\triangle QPA \\sim \\triangle EPC$（AA 相似）：$$\\frac{\\overline{AP}}{\\overline{PC}} = \\frac{\\overline{QA}}{\\overline{EC}} = \\frac{5k}{1k} = 5 : 1$$"
+          },
+          {
+            title: "方法二：直角坐標系法（選擇題極速）",
+            content: "以 $C(0,0)$ 為原點，設長 $\\overline{BC}=4$、寬 $\\overline{CD}=2$。<br>各點坐標：$C(0,0), E(-1,0), F(0,1), A(-4,2)$。<br>直線 $AC: x + 2y = 0$ 與直線 $EF: x - y = -1$ 聯立求得交點 $P(-\\frac{2}{3}, \\frac{1}{3})$。<br>$y$ 軸跨度比：$\\overline{AP} : \\overline{PC} = (2 - \\frac{1}{3}) : (\\frac{1}{3} - 0) = \\frac{5}{3} : \\frac{1}{3} = 5 : 1$。"
+          }
+        ],
+        blindspot: "看到長方形內的交叉分割線，主動延長線段構建沙漏形/蝴蝶形相似是國中最經典破題法；計算總上邊 QA 時別漏加長方形原邊長 AD。"
+      },
+      {
+        id: 6,
+        title: "三角形內心性質與面積分割（利用內心等距特性求線段距離）",
+        date: "2026-08-09",
+        grade: "九年級",
+        unit: "第三章 三心（內心）",
+        topics: ["三心", "內心性質", "面積分割法", "等腰三角形高"],
+        question: "如圖，$I$ 為 $\\triangle ABC$ 的內心，有一直線通過 $I$ 點且分別與 $\\overline{AB}$、$\\overline{AC}$ 相交於 $D$ 點、$E$ 點。若 $\\overline{AD} = \\overline{DE} = 6$，$\\overline{AE} = 8$，則 $I$ 點到 $\\overline{BC}$ 的距離為何？",
+        options: [
+          { key: "A", text: "\\frac{4\\sqrt{5}}{5}" },
+          { key: "B", text: "\\frac{8\\sqrt{5}}{7}" },
+          { key: "C", text: "2" },
+          { key: "D", text: "3" }
+        ],
+        answerKey: "B",
+        answerText: "正確答案：(B) \\frac{8\\sqrt{5}}{7}",
+        imageQ: "images/math_6.png",
+        imageSource: "images/math_6_source.png",
+        steps: [
+          {
+            title: "1. 內心等距性質轉化",
+            content: "因為 $I$ 為 $\\triangle ABC$ 內心，$I$ 到三邊 $\\overline{AB}, \\overline{AC}, \\overline{BC}$ 的垂直距離皆相等，設為 $r$。"
+          },
+          {
+            title: "2. 面積分割法",
+            content: "$$\\text{Area}(\\triangle ADE) = \\text{Area}(\\triangle ADI) + \\text{Area}(\\triangle AEI) = \\frac{1}{2} \\times (\\overline{AD} + \\overline{AE}) \\times r = \\frac{1}{2} \\times (6 + 8) \\times r = 7r$$"
+          },
+          {
+            title: "3. 計算等腰 $\\triangle ADE$ 面積並求 $r$",
+            content: "$\\triangle ADE$ 兩腰為 6、底邊為 8。做底邊高線：$h = \\sqrt{6^2 - 4^2} = \\sqrt{20} = 2\\sqrt{5}$。<br>面積 $= \\frac{1}{2} \\times 8 \\times 2\\sqrt{5} = 8\\sqrt{5}$。<br>由 $7r = 8\\sqrt{5} \\implies r = \\frac{8\\sqrt{5}}{7}$。"
+          }
+        ],
+        blindspot: "I 是大三角形 ABC 的內心，不是小三角形 ADE 的內心！看到通過內心的線段分割，利用到兩側邊距離皆為 r 進行面積分割是經典技巧。"
+      },
+      {
+        id: 7,
+        title: "三人年齡關係與聯立方程式（年齡差不變與回推年齡應用題）",
+        date: "2026-08-09",
+        grade: "七年級",
+        unit: "第一章 二元一次聯立方程式",
+        topics: ["方程組", "年齡問題", "年齡差不變", "時間線回推"],
+        question: "周傑倫、張跟碩、山下製酒三位明星在後臺聚首：<br>• 周傑倫說：「山下製酒，幾年後你到我現在這年齡時，我已經 32 歲。」<br>• 張跟碩說：「周傑倫，我也不過才小你兩歲而已。」<br>• 山下製酒說：「張跟碩，幾年前你在我現在這年齡時，我也才 16 歲而已。」<br>• 經紀公司老闆老 K 說：「我最老，你們三個現在年齡相加就是我今年歲數。」<br>請問老 K 今年幾歲？",
+        options: [
+          { key: "A", text: "72" },
+          { key: "B", text: "70" },
+          { key: "C", text: "68" },
+          { key: "D", text: "75" }
+        ],
+        answerKey: "B",
+        answerText: "正確答案：(B) 70 歲",
+        imageQ: "images/math_7.png",
+        imageSource: "images/math_7_source.png",
+        steps: [
+          {
+            title: "1. 依據時間線與年齡差列方程組",
+            content: "設周現在 $J$ 歲、張 $Z$ 歲、山下 $S$ 歲。<br>1. 周+山下未來：$J + (J - S) = 32 \\implies 2J - S = 32 \\quad \\cdots(1)$<br>2. 張與周年齡差：$Z = J - 2 \\quad \\cdots(2)$<br>3. 張+山下過去：$S - (Z - S) = 16 \\implies 2S - Z = 16 \\quad \\cdots(3)$"
+          },
+          {
+            title: "2. 解方程組求三人現在年齡",
+            content: "將 (2) 代入 (3) 得 $J = 2S - 14$，再代入 (1) 得 $2(2S-14) - S = 32 \\implies 3S = 60 \\implies S = 20$ 歲。<br>代回求得：$J = 26$ 歲、$Z = 24$ 歲。<br>老 K 年齡 $= J + Z + S = 26 + 24 + 20 = 70$ 歲。"
+          }
+        ],
+        blindspot: "搞清楚『幾年後你到我現在年齡（未來 = 現年 + 年齡差）』與『幾年前你在我現在年齡（過去 = 現年 - 年齡差）』的符號方向。"
+      },
+      {
+        id: 8,
+        title: "平行線截比例線段與連比計算（三角形中點與平行截線）",
+        date: "2026-08-16",
+        grade: "九年級",
+        unit: "第一章 相似形",
+        topics: ["相似形", "平行線截比例線段", "連比轉換", "中點性質"],
+        question: "如圖，$\\triangle ABC$ 中，$M$ 是 $\\overline{AB}$ 的中點，$\\overline{CM}$ 上取一點 $N$，使 $\\overline{CN} : \\overline{NM} = 7 : 4$，且 $\\overline{MP} \\parallel \\overline{AN}$，交 $\\overline{BC}$ 於 $P$，延長 $\\overline{AN}$ 交 $\\overline{BC}$ 於 $Q$，若 $\\overline{BC} = 15$，則 $\\overline{BP} = ?$",
+        options: [
+          { key: "A", text: "3" },
+          { key: "B", text: "4" },
+          { key: "C", text: "5" },
+          { key: "D", text: "6" }
+        ],
+        answerKey: "B",
+        answerText: "正確答案：(B) 4",
+        imageQ: "images/math_8.png",
+        imageSource: "images/math_8_source.png",
+        steps: [
+          {
+            title: "1. 兩組平行截線段比例轉換",
+            content: "• 在 $\\triangle CMP$ 中，$\\overline{AN} \\parallel \\overline{MP} \\implies \\overline{CQ} : \\overline{PQ} = \\overline{CN} : \\overline{NM} = 7 : 4$。<br>• 在 $\\triangle ABQ$ 中，$M$ 為中點且 $\\overline{MP} \\parallel \\overline{AQ} \\implies \\overline{BP} : \\overline{PQ} = 1 : 1$。"
+          },
+          {
+            title: "2. 連比整合與求長度",
+            content: "對齊共同項 $\\overline{PQ}=4$ 份：$$\\overline{BP} : \\overline{PQ} : \\overline{CQ} = 4 : 4 : 7$$底邊總份數 $= 4 + 4 + 7 = 15$ 份。已知 $\\overline{BC} = 15$，故 $\\overline{BP} = \\frac{4}{15} \\times 15 = 4$。"
+          }
+        ],
+        blindspot: "找出 AQ // MP 作為兩組平行線的過渡橋樑，連比擴分對齊共同項 PQ 即可輕鬆解出。"
+      },
+      {
+        id: 9,
+        title: "直角座標平面上的點對稱（對稱軸與對稱點座標）",
+        date: "2026-08-17",
+        grade: "七年級",
+        unit: "第三章 直角座標平面與二元一次方程式圖形",
+        topics: ["坐標", "對稱點", "對稱軸", "x軸y軸對稱"],
+        question: "在座標平面上有一點 $A(5, -1)$，若以 $x$ 軸為對稱軸，則其對稱點座標為 $( \\quad , \\quad )$ ；若以 $y$ 軸為對稱軸，則其對稱點座標為 $( \\quad , \\quad )$。",
+        options: [
+          { key: "A", text: "(5, 1) 與 (-5, -1)" },
+          { key: "B", text: "(-5, 1) 與 (5, -1)" },
+          { key: "C", text: "(-5, -1) 與 (5, 1)" },
+          { key: "D", text: "(5, -1) 與 (-5, 1)" }
+        ],
+        answerKey: "A",
+        answerText: "正確答案：(A) x 軸對稱 (5, 1)；y 軸對稱 (-5, -1)",
+        imageQ: null,
+        imageSource: "images/math_9_source.png",
+        steps: [
+          {
+            title: "1. x 軸對稱規則",
+            content: "以 $x$ 軸為折線上下對稱：**$x$ 坐標不變，$y$ 坐標變號**。<br>$$(5, -1) \\xrightarrow{x\\text{軸對稱}} (5, -(-1)) = (5, 1)$$"
+          },
+          {
+            title: "2. y 軸對稱規則",
+            content: "以 $y$ 軸為折線左右對稱：**$y$ 坐標不變，$x$ 坐標變號**。<br>$$(5, -1) \\xrightarrow{y\\text{軸對稱}} (-5, -1)$$"
+          }
+        ],
+        blindspot: "記住極速口訣：『對稱誰，誰就保持不變！』對稱 x 軸則 x 不變、y 變號；對稱 y 軸則 y 不變、x 變號。"
+      },
+      {
+        id: 10,
+        title: "坐標平面正方形頂點移動與規律相遇（等速率相遇問題與餘數週期規律）",
+        date: "2026-08-22",
+        grade: "七年級",
+        unit: "直角坐標平面 / 規律數列與週期問題",
+        topics: ["坐標", "相遇問題", "週期循環", "餘數同餘"],
+        question: "如圖，坐標平面有一正方形 $ABCD$，$A$、$C$ 的坐標分別為 $(1, 1)$、$(-1, -1)$。已知甲、乙兩人在 $A$ 點第 1 次相遇後，甲自 $A$ 點以每秒 $a$ 公尺速率沿邊逆時針等速行走；乙自 $A$ 點以每秒 $b$ 公尺速率沿邊順時針等速行走。若 $a \\neq 7b$，且甲、乙第 2 次相遇在 $D$ 點，則此兩人第 91 次相遇在何處？〔95.基測 II〕",
+        options: [
+          { key: "A", text: "A 點" },
+          { key: "B", text: "B 點" },
+          { key: "C", text: "C 點" },
+          { key: "D", text: "D 點" }
+        ],
+        answerKey: "C",
+        answerText: "正確答案：(C) C 點",
+        imageQ: "images/math_10.png",
+        imageSource: "images/math_10_source.png",
+        steps: [
+          {
+            title: "1. 封閉等速相遇的等距位移特性",
+            content: "兩人在正方形邊上背向而行，每次相遇合走一整圈（4 邊長），相遇時間間隔固定，每次相遇點相對於上一次的位移格數固定。"
+          },
+          {
+            title: "2. 找出 4 次一循環的週期規律",
+            content: "第 1 次在 $A$ 點、第 2 次在 $D$ 點（順時針移 1 格）。<br>規律循環：第 1 次 $A \\to$ 第 2 次 $D \\to$ 第 3 次 $C \\to$ 第 4 次 $B \\to$ 第 5 次回 $A$。"
+          },
+          {
+            title: "3. 利用同餘餘數秒解",
+            content: "$$91 \\div 4 = 22 \\dots \\text{餘 } 3$$餘數為 3 對應到循環中的第 3 個頂點：**$C$ 點**。"
+          }
+        ],
+        blindspot: "別被坐標數字或 $a \\neq 7b$ 防爭議條件干擾，核心是抓住『等速相遇必等距位移』與『4步循環餘數對照』。"
+      },
+      {
+        id: 11,
+        title: "平行線截比例線段與相似三角形性質（母子相似與沙漏形相似綜合題）",
+        date: "2026-08-22",
+        grade: "九年級",
+        unit: "第一章 相似形",
+        topics: ["相似形", "母子相似", "沙漏形相似", "蝴蝶形", "比例線段"],
+        question: "如圖，$\\triangle ABC$ 中，$D$ 為 $\\overline{AB}$ 上一點，過 $D$ 作 $\\overline{DE} \\parallel \\overline{BC}$ 交 $\\overline{AC}$ 於 $E$。若 $\\overline{BE}$ 與 $\\overline{CD}$ 交於 $O$，且 $\\overline{AD} : \\overline{BD} = 2 : 3$，$\\overline{OD} = 1$，則 $\\overline{OC} = ?$",
+        options: [
+          { key: "A", text: "1.5" },
+          { key: "B", text: "2" },
+          { key: "C", text: "2.5" },
+          { key: "D", text: "3" }
+        ],
+        answerKey: "C",
+        answerText: "正確答案：(C) 2.5",
+        imageQ: "images/math_11.png",
+        imageSource: "images/math_11_source.png",
+        steps: [
+          {
+            title: "步驟一：由母子相似求底邊平行線段比",
+            content: "因為 $\\overline{DE} \\parallel \\overline{BC} \\implies \\triangle ADE \\sim \\triangle ABC$（AA 相似）。<br>$$\\frac{\\overline{DE}}{\\overline{BC}} = \\frac{\\overline{AD}}{\\overline{AB}} = \\frac{2}{2 + 3} = \\frac{2}{5}$$"
+          },
+          {
+            title: "步驟二：由沙漏形（蝴蝶形）相似求 OC",
+            content: "$\\overline{BE}$ 與 $\\overline{CD}$ 交叉，內錯角相等 $\\implies \\triangle DOE \\sim \\triangle COB$（AA 相似）。<br>$$\\frac{\\overline{DO}}{\\overline{CO}} = \\frac{\\overline{DE}}{\\overline{BC}} \\implies \\frac{1}{\\overline{OC}} = \\frac{2}{5} \\implies 2\\overline{OC} = 5 \\implies \\overline{OC} = 2.5$$"
+          }
+        ],
+        blindspot: "【致命盲點】千萬不要把側邊截線比 2:3 直接當作底邊比！底邊比是小三角形比大三角形 2:(2+3) = 2:5！"
+      }
+    ];
+
+    // App State Management
+    let currentMode = 'browse'; // 'browse' | 'quiz'
+    let filters = {
+      grade: 'all',
+      topic: 'all',
+      status: 'all',
+      search: ''
+    };
+
+    let userStarred = JSON.parse(localStorage.getItem('miley_starred') || '[]');
+    let userMastered = JSON.parse(localStorage.getItem('miley_mastered') || '[]');
+    let userSelections = {}; // { questionId: selectedKey }
+
+    // Init App
+    document.addEventListener('DOMContentLoaded', () => {
+      initTheme();
+      renderQuestions();
+      updateStats();
+    });
+
+    // Theme Management
+    function initTheme() {
+      const savedTheme = localStorage.getItem('miley_theme') || 'light';
+      document.documentElement.setAttribute('data-theme', savedTheme);
+      updateThemeIcon(savedTheme);
+    }
+
+    function toggleTheme() {
+      const current = document.documentElement.getAttribute('data-theme') || 'light';
+      const next = current === 'dark' ? 'light' : 'dark';
+      document.documentElement.setAttribute('data-theme', next);
+      localStorage.setItem('miley_theme', next);
+      updateThemeIcon(next);
+    }
+
+    function updateThemeIcon(theme) {
+      const btn = document.getElementById('themeToggleBtn');
+      if (btn) {
+        btn.innerHTML = theme === 'dark' ? '<i class="fa-solid fa-sun"></i>' : '<i class="fa-solid fa-moon"></i>';
+      }
+    }
+
+    // Filter & Mode Handlers
+    function setAppMode(mode) {
+      currentMode = mode;
+      document.getElementById('btnModeBrowse').classList.toggle('active', mode === 'browse');
+      document.getElementById('btnModeQuiz').classList.toggle('active', mode === 'quiz');
+      renderQuestions();
+    }
+
+    function setFilter(type, value, element) {
+      filters[type] = value;
+      if (element && element.parentElement) {
+        element.parentElement.querySelectorAll('.chip').forEach(c => c.classList.remove('active'));
+        element.classList.add('active');
+      }
+      renderQuestions();
+    }
+
+    function handleSearch() {
+      filters.search = document.getElementById('searchInput').value.trim().toLowerCase();
+      renderQuestions();
+    }
+
+    function resetFilters() {
+      filters = { grade: 'all', topic: 'all', status: 'all', search: '' };
+      document.getElementById('searchInput').value = '';
+      document.querySelectorAll('.filter-chips').forEach(group => {
+        group.querySelectorAll('.chip').forEach((c, idx) => {
+          c.classList.toggle('active', idx === 0);
+        });
+      });
+      renderQuestions();
+    }
+
+    // Star & Mastery Tracking
+    function toggleStar(id, event) {
+      event.stopPropagation();
+      if (userStarred.includes(id)) {
+        userStarred = userStarred.filter(x => x !== id);
+      } else {
+        userStarred.push(id);
+      }
+      localStorage.setItem('miley_starred', JSON.stringify(userStarred));
+      renderQuestions();
+      updateStats();
+    }
+
+    function toggleMaster(id, event) {
+      event.stopPropagation();
+      if (userMastered.includes(id)) {
+        userMastered = userMastered.filter(x => x !== id);
+      } else {
+        userMastered.push(id);
+      }
+      localStorage.setItem('miley_mastered', JSON.stringify(userMastered));
+      renderQuestions();
+      updateStats();
+    }
+
+    function updateStats() {
+      const total = questionsData.length;
+      const mastered = userMastered.length;
+      const starred = userStarred.length;
+      const rate = total > 0 ? Math.round((mastered / total) * 100) : 0;
+
+      document.getElementById('statTotalCount').innerText = total;
+      document.getElementById('statMasteredCount').innerText = mastered;
+      document.getElementById('statStarredCount').innerText = starred;
+      document.getElementById('statProgressRate').innerText = `${rate}%`;
+    }
+
+    // Option Click in Quiz Mode
+    function selectOption(qId, key) {
+      userSelections[qId] = key;
+      renderQuestions();
+    }
+
+    function toggleCardSolution(qId) {
+      const el = document.getElementById(`solution-${qId}`);
+      if (el) {
+        const isHidden = el.style.display === 'none';
+        el.style.display = isHidden ? 'flex' : 'none';
+      }
+    }
+
+    let allSolutionsOpen = false;
+    function toggleAllSolutions() {
+      allSolutionsOpen = !allSolutionsOpen;
+      document.querySelectorAll('.solution-content').forEach(el => {
+        el.style.display = allSolutionsOpen ? 'flex' : 'none';
+      });
+    }
+
+    // Render Function
+    function renderQuestions() {
+      const wrapper = document.getElementById('questionCardsWrapper');
+      
+      const filtered = questionsData.filter(q => {
+        if (filters.grade !== 'all' && q.grade !== filters.grade) return false;
+        if (filters.topic !== 'all' && !q.topics.some(t => t.includes(filters.topic))) return false;
+        if (filters.status === 'starred' && !userStarred.includes(q.id)) return false;
+        if (filters.status === 'mastered' && !userMastered.includes(q.id)) return false;
+        if (filters.status === 'unmastered' && userMastered.includes(q.id)) return false;
+        
+        if (filters.search) {
+          const s = filters.search;
+          const matchTitle = q.title.toLowerCase().includes(s);
+          const matchContent = q.question.toLowerCase().includes(s);
+          const matchTopics = q.topics.some(t => t.toLowerCase().includes(s));
+          const matchUnit = q.unit.toLowerCase().includes(s);
+          if (!matchTitle && !matchContent && !matchTopics && !matchUnit) return false;
+        }
+        return true;
+      });
+
+      document.getElementById('filterMatchCount').innerText = filtered.length;
+
+      if (filtered.length === 0) {
+        wrapper.innerHTML = `
+          <div class="empty-state">
+            <i class="fa-solid fa-filter-circle-xmark"></i>
+            <h3>沒有找到符合條件的錯題</h3>
+            <p style="color: var(--text-muted); margin-top: 0.5rem;">請嘗試調整篩選條件或搜尋關鍵字</p>
+            <button class="btn btn-primary" style="margin-top: 1rem;" onclick="resetFilters()">重設篩選</button>
+          </div>
+        `;
+        return;
+      }
+
+      wrapper.innerHTML = filtered.map(q => {
+        const isStarred = userStarred.includes(q.id);
+        const isMastered = userMastered.includes(q.id);
+        const userChoice = userSelections[q.id];
+        const isQuizAnswered = userChoice !== undefined;
+        const showSolutionDefault = currentMode === 'browse' || isQuizAnswered;
+
+        return `
+          <article class="question-card" id="q-card-${q.id}">
+            
+            <!-- Card Header -->
+            <div class="card-header">
+              <div class="q-badge-group">
+                <span class="q-number"><i class="fa-solid fa-bookmark"></i> 錯題 ${q.id}</span>
+                <span class="tag grade">${q.grade}</span>
+                <span class="tag">${q.unit.split(' ')[0]}</span>
+                ${q.id === 11 ? '<span class="tag brush">🔥 最新收錄</span>' : ''}
+              </div>
+
+              <div class="card-controls">
+                <button class="btn-icon ${isStarred ? 'starred' : ''}" onclick="toggleStar(${q.id}, event)" title="${isStarred ? '取消星號' : '加入星號重點'}">
+                  <i class="fa-${isStarred ? 'solid' : 'regular'} fa-star"></i>
+                </button>
+                <button class="btn-icon ${isMastered ? 'mastered-btn' : ''}" onclick="toggleMaster(${q.id}, event)" title="${isMastered ? '標記為未掌握' : '標記為已精熟'}">
+                  <i class="fa-solid fa-check"></i>
+                </button>
+              </div>
+            </div>
+
+            <!-- Card Body -->
+            <div class="card-body">
+              <h3 class="q-title">${q.title}</h3>
+              
+              <div class="q-content">
+                ${q.question}
+              </div>
+
+              ${q.imageQ ? `
+                <div class="q-image-container">
+                  <img src="${q.imageQ}" alt="題目圖" class="q-image" onclick="openModal('${q.imageQ}', '${q.imageSource}')" title="點擊放大圖片">
+                  <div class="image-caption">
+                    <i class="fa-solid fa-magnifying-glass-plus"></i> 點擊放大題目圖 / 對照完整原始截圖
+                  </div>
+                </div>
+              ` : ''}
+
+              <!-- Options -->
+              <div class="q-options">
+                ${q.options.map(opt => {
+                  let optClass = 'option-item';
+                  if (currentMode === 'browse') {
+                    if (opt.key === q.answerKey) optClass += ' correct-answer';
+                  } else if (isQuizAnswered) {
+                    if (opt.key === q.answerKey) optClass += ' correct-answer';
+                    else if (userChoice === opt.key) optClass += ' selected-wrong';
+                  }
+                  
+                  return `
+                    <div class="${optClass}" onclick="selectOption(${q.id}, '${opt.key}')">
+                      <span class="opt-badge">${opt.key}</span>
+                      <span>${opt.text}</span>
+                      ${(currentMode === 'browse' || isQuizAnswered) && opt.key === q.answerKey ? '<i class="fa-solid fa-circle-check" style="margin-left: auto;"></i>' : ''}
+                      ${isQuizAnswered && userChoice === opt.key && opt.key !== q.answerKey ? '<i class="fa-solid fa-circle-xmark" style="margin-left: auto;"></i>' : ''}
+                    </div>
+                  `;
+                }).join('')}
+              </div>
+
+              <!-- Solution Section -->
+              <div class="solution-section">
+                <button class="solution-toggle-btn" onclick="toggleCardSolution(${q.id})">
+                  <i class="fa-solid fa-lightbulb"></i>
+                  <span>${showSolutionDefault ? '收合詳解與思考盲點' : '顯示完整詳解與思考盲點'}</span>
+                </button>
+
+                <div class="solution-content" id="solution-${q.id}" style="display: ${showSolutionDefault ? 'flex' : 'none'};">
+                  
+                  <div class="answer-callout">
+                    <i class="fa-solid fa-key"></i>
+                    <span>${q.answerText}</span>
+                  </div>
+
+                  <div class="steps-list">
+                    ${q.steps.map(step => `
+                      <div class="step-item">
+                        <h5><i class="fa-solid fa-arrow-right-long"></i> ${step.title}</h5>
+                        <p>${step.content}</p>
+                      </div>
+                    `).join('')}
+                  </div>
+
+                  <!-- Blind Spot Alert -->
+                  <div class="blindspot-card">
+                    <div class="blindspot-icon">
+                      <i class="fa-solid fa-triangle-exclamation"></i>
+                    </div>
+                    <div class="blindspot-body">
+                      <h5>🧠 思考盲點與概念釐清（為什麼會選錯？）</h5>
+                      <p>${q.blindspot}</p>
+                    </div>
+                  </div>
+
+                  ${q.imageSource ? `
+                    <div style="font-size: 0.82rem; color: var(--text-muted); display: flex; align-items: center; justify-content: space-between;">
+                      <span>📅 記錄日期：${q.date}</span>
+                      <button class="btn btn-ghost" style="padding: 0.3rem 0.6rem; font-size: 0.78rem;" onclick="openModal('${q.imageSource}', '${q.imageSource}')">
+                        <i class="fa-solid fa-image"></i> 檢視原始手寫/截圖對照
+                      </button>
+                    </div>
+                  ` : ''}
+
+                </div>
+              </div>
+
+            </div>
+
+          </article>
+        `;
+      }).join('');
+
+      // Trigger KaTeX rendering for math formulas
+      if (window.renderMathInElement) {
+        renderMathInElement(wrapper, {
+          delimiters: [
+            { left: '$$', right: '$$', display: true },
+            { left: '$', right: '$', display: false }
+          ],
+          throwOnError: false
+        });
+      }
+    }
+
+    // Modal Lightbox Functions
+    let currentModalClean = '';
+    let currentModalSource = '';
+    let isShowingSource = false;
+
+    function openModal(cleanImg, sourceImg) {
+      currentModalClean = cleanImg;
+      currentModalSource = sourceImg || cleanImg;
+      isShowingSource = (cleanImg === sourceImg);
+      
+      const modal = document.getElementById('imageModal');
+      const img = document.getElementById('modalImg');
+      const toggleBtn = document.getElementById('modalToggleSourceBtn');
+      
+      img.src = cleanImg;
+      toggleBtn.style.display = (cleanImg !== sourceImg) ? 'inline-flex' : 'none';
+      toggleBtn.innerHTML = '<i class="fa-solid fa-image"></i> 切換原始完整截圖';
+      
+      modal.classList.add('active');
+    }
+
+    function toggleModalSource() {
+      const img = document.getElementById('modalImg');
+      const toggleBtn = document.getElementById('modalToggleSourceBtn');
+      if (isShowingSource) {
+        img.src = currentModalClean;
+        toggleBtn.innerHTML = '<i class="fa-solid fa-image"></i> 切換原始完整截圖';
+        isShowingSource = false;
+      } else {
+        img.src = currentModalSource;
+        toggleBtn.innerHTML = '<i class="fa-solid fa-crop-simple"></i> 切換裁剪題目圖';
+        isShowingSource = true;
+      }
+    }
+
+    function closeModal(event) {
+      const modal = document.getElementById('imageModal');
+      modal.classList.remove('active');
+    }
+
+    // Keyboard navigation (Esc to close modal)
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeModal();
+    });
+  </script>
+
+</body>
+</html>
