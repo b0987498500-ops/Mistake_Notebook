@@ -824,9 +824,10 @@ $$\overline{BP} = \frac{4}{4 + 4 + 7} \times \overline{BC} = \frac{4}{15} \times
 
 ---
 
-## 📌 錯題 11：平行線截比例線段與相似三角形性質（母子相似與沙漏形相似綜合題）
+## 📌 錯題 11 [二刷]：平行線截比例線段與相似三角形性質（母子相似與沙漏形相似綜合題）
 
 ### 📅 記錄日期：2026-08-22
+- **二刷日期**：2026-08-23
 
 ### 📝 題目敘述
 如圖，$\triangle ABC$ 中，$D$ 為 $\overline{AB}$ 上一點，過 $D$ 作 $\overline{DE} // \overline{BC}$ 交 $\overline{AC}$ 於 $E$。若 $\overline{BE}$ 與 $\overline{CD}$ 交於 $O$，且 $\overline{AD} : \overline{BD} = 2 : 3$，$\overline{OD} = 1$，則 $\overline{OC} = ?$

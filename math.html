@@ -1989,7 +1989,8 @@
       {
         id: 11,
         title: "平行線截比例線段與相似三角形性質（母子相似與沙漏形相似綜合題）",
-        date: "2026-08-22",
+        date: "2026-08-22（二刷：2026-08-23）",
+        brush: "二刷",
         grade: "九年級",
         unit: "第一章 相似形",
         topics: ["相似形", "母子相似", "沙漏形相似", "蝴蝶形", "比例線段"],
@@ -2291,6 +2292,7 @@
             <div class="card-header">
               <div class="q-badge-group">
                 <span class="q-number"><i class="fa-solid fa-bookmark"></i> 錯題 ${q.id}</span>
+                ${q.brush ? `<span class="tag brush" style="background: #fee2e2; color: #dc2626; border-color: #fca5a5; font-weight: 800;"><i class="fa-solid fa-rotate-right"></i> ${q.brush}</span>` : ''}
                 <span class="tag grade">${q.grade}</span>
                 <span class="tag">${q.unit.split(' ')[0]}</span>
                 ${q.id === 11 ? '<span class="tag brush">🔥 最新收錄</span>' : ''}
