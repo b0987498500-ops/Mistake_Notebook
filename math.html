@@ -2016,6 +2016,45 @@
           }
         ],
         blindspot: "【致命盲點】千萬不要把側邊截線比 2:3 直接當作底邊比！底邊比是小三角形比大三角形 2:(2+3) = 2:5！"
+      },
+      {
+        id: 12,
+        title: "相似三角形紙卡翻面與比例線段計算（中點重疊與翻面線段比轉換）",
+        date: "2026-08-27",
+        brush: "",
+        grade: "九年級",
+        unit: "第一章 相似形",
+        topics: ["相似形", "比例線段", "紙卡翻面", "中點性質", "連比轉換"],
+        question: "如圖(一)，兩張相似的紙卡 $\\triangle ABC$ 與 $\\triangle DEF$ 相疊在一起時，發現 $E$、$F$ 恰在 $\\overline{AB}$ 與 $\\overline{AC}$ 的中點上，若將 $\\triangle DEF$ 翻面，如圖(二)，使 $F$、$E$ 分別在 $\\overline{AB}$、$\\overline{AC}$ 上，則 $\\overline{AF} : \\overline{FB} = 3 : 4$，則圖(二)中，$\\overline{AE} : \\overline{EC} = ?$",
+        options: [
+          { key: "A", text: "3 : 2" },
+          { key: "B", text: "7 : 5" },
+          { key: "C", text: "8 : 5" },
+          { key: "D", text: "9 : 7" }
+        ],
+        answerKey: "B",
+        answerText: "正確答案：(B) 7 : 5",
+        imageQ: "images/math_12.png",
+        imageSource: "images/math_12_source.png",
+        steps: [
+          {
+            title: "步驟一：由圖(一)疊合關係確定 DEF 兩腰邊長",
+            content: "因為 $\\triangle ABC \\sim \\triangle DEF$，頂點 $D$ 與 $A$ 重合，且 $E$、$F$ 為中點：<br>$$\\overline{DE} = \\frac{1}{2}\\overline{AB}, \\quad \\overline{DF} = \\frac{1}{2}\\overline{AC}$$"
+          },
+          {
+            title: "步驟二：分析圖(二)紙卡「翻面」後的線段配置",
+            content: "翻面後兩腰邊長左右互換：<br>• 落在 $\\overline{AB}$ 上的長度為 $\\overline{AF} = \\overline{DF} = \\frac{1}{2}\\overline{AC}$<br>• 落在 $\\overline{AC}$ 上的長度為 $\\overline{AE} = \\overline{DE} = \\frac{1}{2}\\overline{AB}$"
+          },
+          {
+            title: "步驟三：利用條件求 AB 與 AC 的長度關係",
+            content: "已知 $\\overline{AF} : \\overline{FB} = 3 : 4 \\implies \\overline{AF} = \\frac{3}{7}\\overline{AB}$。<br>代入得：$$\\frac{1}{2}\\overline{AC} = \\frac{3}{7}\\overline{AB} \\implies \\overline{AC} = \\frac{6}{7}\\overline{AB} \\implies \\overline{AB} = \\frac{7}{6}\\overline{AC}$$"
+          },
+          {
+            title: "步驟四：求圖(二)中 AE : EC 之比",
+            content: "$\\overline{AE} = \\frac{1}{2}\\overline{AB} = \\frac{1}{2} \\times \\frac{7}{6}\\overline{AC} = \\frac{7}{12}\\overline{AC}$<br>$\\overline{EC} = \\overline{AC} - \\overline{AE} = \\frac{5}{12}\\overline{AC}$<br>$$\\overline{AE} : \\overline{EC} = \\frac{7}{12} : \\frac{5}{12} = \\mathbf{7 : 5}$$"
+          }
+        ],
+        blindspot: "【致命盲點】紙卡翻面後，兩腰左右互換，落在 AB 上的長度為 DF = 1/2 AC，千萬別誤以為依然是 DE！另外 AF:FB=3:4 代表 AF 佔整段 AB 的 3/7，切勿直接寫成 3/4！"
       }
     ];
 
@@ -2295,7 +2334,7 @@
                 ${q.brush ? `<span class="tag brush" style="background: #fee2e2; color: #dc2626; border-color: #fca5a5; font-weight: 800;"><i class="fa-solid fa-rotate-right"></i> ${q.brush}</span>` : ''}
                 <span class="tag grade">${q.grade}</span>
                 <span class="tag">${q.unit.split(' ')[0]}</span>
-                ${q.id === 11 ? '<span class="tag brush">🔥 最新收錄</span>' : ''}
+                ${q.id === 12 ? '<span class="tag brush">🔥 最新收錄</span>' : ''}
               </div>
 
               <div class="card-controls">

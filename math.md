@@ -905,15 +905,98 @@ $$\overline{BP} = \frac{4}{4 + 4 + 7} \times \overline{BC} = \frac{4}{15} \times
 
 ---
 
+---
+
+## 📌 錯題 12：相似三角形紙卡翻面與比例線段計算（中點重疊與翻面線段比轉換）
+
+### 📅 記錄日期：2026-08-27
+
+### 📝 題目敘述
+如圖(一)，兩張相似的紙卡 $\triangle ABC$ 與 $\triangle DEF$ 相疊在一起時，發現 $E$、$F$ 恰在 $\overline{AB}$ 與 $\overline{AC}$ 的中點上，若將 $\triangle DEF$ 翻面，如圖(二)，使 $F$、$E$ 分別在 $\overline{AB}$、$\overline{AC}$ 上，則 $\overline{AF} : \overline{FB} = 3 : 4$，則圖(二)中，$\overline{AE} : \overline{EC} = ?$
+*   (A) 3 : 2
+*   (B) 7 : 5
+*   (C) 8 : 5
+*   (D) 9 : 7
+
 <details open>
-<summary>🔍 <b>原始完整截圖（點擊可展開/收合整個區塊，點擊下方圖片可原地放大/縮小）</b></summary>
-<input type="checkbox" id="zoom-m11-src" class="zoom-toggle">
-<label for="zoom-m11-src" class="zoom-label">
-  <img src="images/math_11_source.png" alt="原始完整截圖" style="width: 100%; max-width: 450px; margin-top: 8px; border-radius: 6px; border: 1px solid #ddd;">
+<summary>🔍 <b>題目幾何圖（點擊可展開/收合整個區塊，點擊下方圖片可原地放大/縮小）</b></summary>
+<input type="checkbox" id="zoom-m12-q" class="zoom-toggle">
+<label for="zoom-m12-q" class="zoom-label">
+  <img src="images/math_12.png" alt="題目幾何圖" style="width: 100%; max-width: 320px; margin-top: 8px; border-radius: 6px; border: 1px solid #ddd;">
 </label>
 </details>
 
-[🖼️ 查看原始完整截圖（💡 提示：點擊連結開啟圖片後，可將分頁拖曳至右側或按 Ctrl + \ 分割視窗對照）](images/math_11_source.png)
+### 🏷️ 錯題分類
+*   **年級**：九年級上學期（國三上）/ 國中會考總複習
+*   **科目**：數學（翰林/康軒/南一版）
+*   **單元**：第一章 相似形
+*   **核心知識點**：
+    1. 相似三角形性質（對應邊成比例、對應角相等）
+    2. 紙卡翻面時邊長左右互換與頂角重合特性
+    3. 中點性質與連比比例轉換（求線段長度之比）
+
+### 🔑 答案
+> 💡 **【核心答案】**  
+> **正確答案：(B) 7 : 5**
+
+### 💡 完整解析與解題步驟
+
+#### 步驟一：由圖(一)紙卡疊合關係確定 $\triangle DEF$ 的兩腰邊長
+1. 已知兩張紙卡 $\triangle ABC \sim \triangle DEF$。
+2. 在圖(一)中，頂點 $D$ 與 $A$ 重合，且 $E$、$F$ 分別為 $\overline{AB}$、$\overline{AC}$ 的中點。
+3. 因此紙卡 $\triangle DEF$ 的兩腰邊長分別為：
+   $$\overline{DE} = \frac{1}{2}\overline{AB}, \quad \overline{DF} = \frac{1}{2}\overline{AC}$$
+
+---
+
+#### 步驟二：分析圖(二)紙卡「翻面」後的線段配置
+1. 將紙卡 $\triangle DEF$ 翻面後，頂點 $D$ 依然與頂點 $A$ 重合（頂角 $\angle D = \angle A$ 維持在頂部）。
+2. 但因為紙卡翻面，兩腰邊長**左右互換**：
+   * 落在 $\overline{AB}$ 邊上的線段長度為 $\overline{AF} = \overline{DF} = \frac{1}{2}\overline{AC}$
+   * 落在 $\overline{AC}$ 邊上的線段長度為 $\overline{AE} = \overline{DE} = \frac{1}{2}\overline{AB}$
+
+---
+
+#### 步驟三：利用圖(二)條件求出 $\overline{AB}$ 與 $\overline{AC}$ 的長度關係
+1. 題目給定圖(二)中 $\overline{AF} : \overline{FB} = 3 : 4$。
+2. 整條邊 $\overline{AB} = \overline{AF} + \overline{FB}$ 佔 $3 + 4 = 7$ 份，故：
+   $$\overline{AF} = \frac{3}{7}\overline{AB}$$
+3. 將步驟二的 $\overline{AF} = \frac{1}{2}\overline{AC}$ 代入：
+   $$\frac{1}{2}\overline{AC} = \frac{3}{7}\overline{AB} \implies \overline{AC} = \frac{6}{7}\overline{AB} \quad \left(\text{亦即 } \overline{AB} = \frac{7}{6}\overline{AC}\right)$$
+
+---
+
+#### 步驟四：計算圖(二)中 $\overline{AE} : \overline{EC}$ 的比例
+1. 邊 $\overline{AC}$ 上的截線長度 $\overline{AE}$ 為：
+   $$\overline{AE} = \frac{1}{2}\overline{AB} = \frac{1}{2} \times \left(\frac{7}{6}\overline{AC}\right) = \frac{7}{12}\overline{AC}$$
+2. 剩餘線段 $\overline{EC}$ 的長度為：
+   $$\overline{EC} = \overline{AC} - \overline{AE} = \overline{AC} - \frac{7}{12}\overline{AC} = \frac{5}{12}\overline{AC}$$
+3. 因此兩線段之比為：
+   $$\overline{AE} : \overline{EC} = \frac{7}{12}\overline{AC} : \frac{5}{12}\overline{AC} = \mathbf{7 : 5}$$
+4. 故正確答案選 **(B)**。
+
+---
+
+> ⚠️ **【🧠 思考盲點與概念釐清（為什麼會選錯？）】**
+>
+> *   **❌ 致命盲點 1：忽略「紙卡翻面」導致腰長互換**  
+>     *   許多同學看圖(二)誤以為落在 $\overline{AB}$ 上的依然是 $\overline{DE}$。  
+>     *   **觀念糾正**：紙卡翻面時，邊 $\overline{DF}$ 會翻到左側（落在 $\overline{AB}$ 上），邊 $\overline{DE}$ 翻到右側（落在 $\overline{AC}$ 上），因此 $\overline{AF} = \overline{DF} = \frac{1}{2}\overline{AC}$。
+> *   **❌ 致命盲點 2：搞混「部分比」與「全部比」**  
+>     *   已知 $\overline{AF} : \overline{FB} = 3 : 4$，這代表 $\overline{AF}$ 佔整段 $\overline{AB}$ 的 $\frac{3}{3+4} = \frac{3}{7}$，切勿筆誤直接寫成 $\frac{3}{4}\overline{AB}$。
+
+---
+
+<details open>
+<summary>🔍 <b>原始完整截圖（點擊可展開/收合整個區塊，點擊下方圖片可原地放大/縮小）</b></summary>
+<input type="checkbox" id="zoom-m12-src" class="zoom-toggle">
+<label for="zoom-m12-src" class="zoom-label">
+  <img src="images/math_12_source.png" alt="原始完整截圖" style="width: 100%; max-width: 450px; margin-top: 8px; border-radius: 6px; border: 1px solid #ddd;">
+</label>
+</details>
+
+[🖼️ 查看原始完整截圖（💡 提示：點擊連結開啟圖片後，可將分頁拖曳至右側或按 Ctrl + \ 分割視窗對照）](images/math_12_source.png)
+
 
 
 
